@@ -1,3 +1,9 @@
+ 
+/***************************************************
+
+			SETUP
+
+***************************************************/ 
  //require the express nodejs module
 var express = require('express'),
 	//set an instance of exress
@@ -18,7 +24,6 @@ process.argv.forEach(function (val, index, array) {
   }
 });
 
-
 //support parsing of application/json type post data
 app.use(bodyParser.json());
 
@@ -32,6 +37,54 @@ app.use(express.static(path.join(__dirname, 'publicDacaIot')));
 app.listen(3000, function () {
   console.log('Server is running. Point your browser to: http://localhost:3000. zhu ni hao yun');
 });
+
+/***************************************************
+
+	Connection to CLIENT
+
+***************************************************/
+
+var updateMade = false;
+var peopleCount = 0;
+var timeCount = 0;
+var TX_RECEIVED = true;
+
+app.post('/update-people-chart',function(req, res){
+	
+	res.setHeader('Content-Type', 'application/json');
+
+	if(updateMade && !TX_SERVER) {
+		res.send(JSON.stringify({
+			x: timeCount,
+			y: peopleCount
+		}));
+		updateMade = false;
+	}
+});
+
+// check every interval to see if data not received from TX
+setInterval(function() {
+	if(!TX_SERVER) {
+		if(TX_RECEIVED) {
+			TX_RECEIVED = false;
+		} else {
+			// whoa, no TX received!
+			peopleCount++;
+			updateMade = true;
+		}
+	}
+}, 100);
+setInterval(function() {
+	// there are much better ways to do this..
+	timeCount++;
+}, 10000);
+
+// TODO - ADD A RESET BUTTON
+function resetPeopleChart() {
+	peopleCount = 0;
+	timeCount = 0;
+} 
+
 
 /***************************************************
 
@@ -62,9 +115,9 @@ serialPort.on("open", function () {
 serialPort.on('data', function(data) {
 	if( !TX_SERVER ) {
 		console.log(data.toString('ascii'));
+		TX_RECEIVED = true;
 	}
-   
-  })
+ })
 
 
 

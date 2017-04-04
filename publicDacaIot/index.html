@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>Data -- DAC IOT SIUC Testing</title>
+	<script src="./js/jquery-3.1.1.min.js"></script>
+	<script src="./js/chart.js"></script>
+
 	<style type="text/css">
 	.form_group {
 		display: block;
@@ -26,7 +29,6 @@
 	</form>
 	<label for="values">Data: </label><textarea id="values"></textarea>
 
-	<script src="chart.js"></script>
 	<script type="text/javascript">
 		var ctx = document.getElementById("myChart").getContext("2d");
 
@@ -101,6 +103,19 @@
 				textArea.innerHTML += dataSet.data[i].x + "," + dataSet.data[i].y + "\n";
 			}
 		}
+		setInterval(function() {
+			//make the AJAX call
+			$.ajax({
+					url: '/update-people-chart',
+					type: 'POST',
+					success: function(data) {
+					  appendData(data.x, data.y);
+					},
+				});
+		},1000);
+		
+		
+		
 	</script>
 </body>
 </html>
