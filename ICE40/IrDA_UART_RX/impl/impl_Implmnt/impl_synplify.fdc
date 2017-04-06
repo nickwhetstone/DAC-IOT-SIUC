@@ -1,0 +1,8 @@
+#1001 define_clock {p:clk_in} -name {uart|clk_in} -ref_rise {0.0} -ref_fall {4.178600} -uncertainty {0.000000} -period {8.357200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.178600}
+#1002 define_clock {n:ice_pll_inst.PLLOUTCORE} -name {ice_pll|PLLOUTCORE_derived_clock} -ref_rise {0.0} -ref_fall {4.178600} -uncertainty {0.000000} -period {8.357200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.178600}
+#1003 define_clock {n:CLKOS} -name {uart|CLKOS_derived_clock} -ref_rise {0.0} -ref_fall {4.178600} -uncertainty {0.000000} -period {8.357200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.178600} -disable
+#1004 define_multicycle_path -setup -from {c:uart|CLKOS_derived_clock} -to {c:uart|CLKOS_derived_clock} {2}
+#1005 define_multicycle_path -hold -from {c:uart|CLKOS_derived_clock} -to {c:uart|CLKOS_derived_clock} {1}
+#1006 define_clock {n:count[3]} -name {uart|count_derived_clock[3]} -ref_rise {0.0} -ref_fall {4.178600} -uncertainty {0.000000} -period {8.357200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.178600} -disable
+#1007 define_multicycle_path -setup -from {c:uart|count_derived_clock[3]} -to {c:uart|count_derived_clock[3]} {2}
+#1008 define_multicycle_path -hold -from {c:uart|count_derived_clock[3]} -to {c:uart|count_derived_clock[3]} {1}

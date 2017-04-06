@@ -1,0 +1,16 @@
+[VIC]
+CLKOS3_3_cascade_=ltout:in0
+clk_count_RNO_0Z0Z_1_cascade_=ltout:in1
+i_start_tx_8_cascade_=ltout:in0
+rx_rdy_16_cascade_=ltout:in3
+un1_rst_countlt14_0_cascade_=ltout:in3
+uut1.N_216_0_cascade_=ltout:in1
+uut1.N_217_0_4_cascade_=ltout:in0
+uut1.N_218_0_cascade_=ltout:in1
+uut1.N_221_0_2_cascade_=ltout:in0
+uut1.N_221_0_5_cascade_=ltout:in1
+uut1.rx_data_10_m_8_cascade_=ltout:in3
+uut1.rx_data_35_0_0_6_cascade_=ltout:in1
+uut1.rx_sample_en_cascade_=ltout:in2
+uut1.rx_sampling_clock_cnv_1_cascade_=ltout:in1
+uut1.rx_sampling_counter16_cascade_=ltout:in0

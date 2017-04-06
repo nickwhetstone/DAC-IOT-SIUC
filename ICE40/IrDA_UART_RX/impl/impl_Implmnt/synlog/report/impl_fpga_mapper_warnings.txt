@@ -1,0 +1,7 @@
+@W: MO171 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":500:4:500:9|Sequential instance uut1.clearrxdataready1 is reduced to a combinational gate by constant propagation. 
+@W: MO160 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Register bit state[10] (in view view:work.uart_rx_fsm(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Register bit state[9] (in view view:work.uart_rx_fsm(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO129 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_tx_fsm.v":133:4:133:9|Sequential instance uut2.state[9] is reduced to a combinational gate by constant propagation.
+@W: MO129 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_tx_fsm.v":133:4:133:9|Sequential instance uut2.state[12] is reduced to a combinational gate by constant propagation.
+@W: MT420 |Found inferred clock uart|clk_in with period 8.36ns. Please declare a user-defined clock on object "p:clk_in"
+@W: MT116 |Paths from clock (uart|clk_in:r) to clock (ice_pll|PLLOUTCORE_derived_clock:r) are overconstrained because the required time of 8.36 ns is too small.  

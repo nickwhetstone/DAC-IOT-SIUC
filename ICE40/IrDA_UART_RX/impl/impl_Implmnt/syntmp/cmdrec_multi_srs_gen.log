@@ -1,0 +1,7 @@
+C:\lscc\iCEcube2.2016.12\synpbase\bin64\syn_nfilter.exe  -link  -multisrs  "C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synwork\impl_comp.srs"  -osyn  "C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synwork\impl_mult.srs"  -log  "C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synlog\impl_multi_srs_gen.srr" 
+rc:0 success:1 runtime:0
+file:C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synwork\impl_comp.srs|io:i|time:1489342668|size:19551|exec:0
+file:C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synwork\impl_mult.srs|io:o|time:1489342669|size:6911|exec:0
+file:C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\synlog\impl_multi_srs_gen.srr|io:o|time:1489342669|size:803|exec:0
+file:C:\lscc\iCEcube2.2016.12\synpbase\bin\syn_nfilter.exe|io:i|time:1486225048|size:3115520|exec:1
+file:C:\lscc\iCEcube2.2016.12\synpbase\bin64\syn_nfilter.exe|io:i|time:1486225055|size:4189696|exec:1

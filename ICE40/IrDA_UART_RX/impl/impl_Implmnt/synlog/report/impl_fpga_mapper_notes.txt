@@ -1,0 +1,31 @@
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: MT206 |Auto Constrain mode is enabled
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":513:4:513:9|Removing sequential instance timeout_counter[5:0] (in view: work.uart_rx_fsm(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Removing sequential instance timeout_counter_begin (in view: work.uart_rx_fsm(verilog)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":419:4:419:9|Removing sequential instance rx_clk_reg2 (in view: work.uart_rx_fsm(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":419:4:419:9|Removing sequential instance rx_clk_reg1 (in view: work.uart_rx_fsm(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_ir_rx_ice.v":71:0:71:5|Removing sequential instance rst_count[21] (in view: work.uart(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_tx_fsm.v":359:4:359:9|Removing sequential instance parity_bit (in view: work.uart_tx_fsm(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_tx_fsm.v":332:4:332:9|Removing sequential instance check_bit (in view: work.uart_tx_fsm(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_tx_fsm.v":94:4:94:9|Removing sequential instance uut2.tx_data[7] (in view: work.uart(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Removing sequential instance uut1.rx_data[2] (in view: work.uart(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Removing sequential instance uut1.rx_data[1] (in view: work.uart(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_rx_fsm.v":120:4:120:9|Removing sequential instance uut1.rx_data[0] (in view: work.uart(verilog)) because it does not drive other instances.
+@N: FX1017 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_ir_rx_ice.v":81:8:81:19|SB_GB inserted on the net CLKOP.
+@N: FX1016 :"c:\users\ed rod\downloads\lattice semiconductor.application_library_3\irda_uart_rx\uart_source\uart_ir_rx_ice.v":43:22:43:27|SB_GB_IO inserted on the port clk_in.
+@N: FX1017 :|SB_GB inserted on the net rst_count_i[19].
+@N: FX1017 :|SB_GB inserted on the net N_95.
+@N: FX1017 :|SB_GB inserted on the net un1_rst_countlt21_0_i.
+@N: FX1017 :|SB_GB inserted on the net N_123.
+@N: MT611 :|Automatically generated clock uart|CLKOS_derived_clock is not used and is being removed
+@N: MT617 :|Automatically generated clock uart|count_derived_clock[3] has lost its master clock uart|CLKOS_derived_clock and is being removed
+@N: MT611 :|Automatically generated clock uart|count_derived_clock[3] is not used and is being removed
+@N: BW103 |Synopsys Constraint File time units using default value of 1ns 
+@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
+@N: FX1056 |Writing EDF file: C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_3\IrDA_UART_RX\impl\impl_Implmnt\impl.edf
+@N: MT615 |Found clock ice_pll|PLLOUTCORE_derived_clock with period 8.36ns 
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.

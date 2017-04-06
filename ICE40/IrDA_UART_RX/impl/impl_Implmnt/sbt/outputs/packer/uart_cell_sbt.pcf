@@ -1,0 +1,326 @@
+ble_pack rst_count_RNI3HF2_19_LC_2_6_1 { rst_count_RNI3HF2[19] }
+clb_pack LT_2_6 { rst_count_RNI3HF2_19_LC_2_6_1 }
+set_location LT_2_6 2 6
+ble_pack uut1.o_rx_data_RNISCOA_6_LC_2_7_7 { uut1.o_rx_data_RNISCOA[6] }
+clb_pack LT_2_7 { uut1.o_rx_data_RNISCOA_6_LC_2_7_7 }
+set_location LT_2_7 2 7
+ble_pack shift_reg2_15_LC_4_1_0 { shift_reg2_15_THRU_LUT4_0, shift_reg2[15] }
+ble_pack shift_reg2_14_LC_4_1_2 { shift_reg2_14_THRU_LUT4_0, shift_reg2[14] }
+ble_pack shift_reg1_RNO_2_0_LC_4_1_5 { shift_reg1_RNO_2[0] }
+ble_pack shift_reg2_13_LC_4_1_7 { shift_reg2_13_THRU_LUT4_0, shift_reg2[13] }
+clb_pack LT_4_1 { shift_reg2_15_LC_4_1_0, shift_reg2_14_LC_4_1_2, shift_reg1_RNO_2_0_LC_4_1_5, shift_reg2_13_LC_4_1_7 }
+set_location LT_4_1 4 1
+ble_pack shift_reg1_13_LC_4_2_0 { shift_reg1_13_THRU_LUT4_0, shift_reg1[13] }
+ble_pack shift_reg1_14_LC_4_2_1 { shift_reg1_14_THRU_LUT4_0, shift_reg1[14] }
+ble_pack shift_reg1_7_LC_4_2_2 { shift_reg1_7_THRU_LUT4_0, shift_reg1[7] }
+ble_pack shift_reg1_8_LC_4_2_6 { shift_reg1_8_THRU_LUT4_0, shift_reg1[8] }
+ble_pack shift_reg1_9_LC_4_2_7 { shift_reg1_9_THRU_LUT4_0, shift_reg1[9] }
+clb_pack LT_4_2 { shift_reg1_13_LC_4_2_0, shift_reg1_14_LC_4_2_1, shift_reg1_7_LC_4_2_2, shift_reg1_8_LC_4_2_6, shift_reg1_9_LC_4_2_7 }
+set_location LT_4_2 4 2
+ble_pack shift_reg2_10_LC_4_3_0 { shift_reg2_10_THRU_LUT4_0, shift_reg2[10] }
+ble_pack shift_reg2_16_LC_4_3_1 { shift_reg2_16_THRU_LUT4_0, shift_reg2[16] }
+ble_pack shift_reg2_12_LC_4_3_2 { shift_reg2_12_THRU_LUT4_0, shift_reg2[12] }
+ble_pack shift_reg2_9_LC_4_3_4 { shift_reg2_9_THRU_LUT4_0, shift_reg2[9] }
+ble_pack shift_reg2_11_LC_4_3_5 { shift_reg2_11_THRU_LUT4_0, shift_reg2[11] }
+ble_pack shift_reg1_RNO_0_0_LC_4_3_6 { shift_reg1_RNO_0[0] }
+clb_pack LT_4_3 { shift_reg2_10_LC_4_3_0, shift_reg2_16_LC_4_3_1, shift_reg2_12_LC_4_3_2, shift_reg2_9_LC_4_3_4, shift_reg2_11_LC_4_3_5, shift_reg1_RNO_0_0_LC_4_3_6 }
+set_location LT_4_3 4 3
+ble_pack shift_reg1_RNIMSC7_0_LC_4_4_0 { shift_reg1_RNIMSC7[0] }
+ble_pack shift_reg1_1_LC_4_4_1 { shift_reg1_1_THRU_LUT4_0, shift_reg1[1] }
+ble_pack shift_reg1_2_LC_4_4_2 { shift_reg1_2_THRU_LUT4_0, shift_reg1[2] }
+ble_pack shift_reg1_3_LC_4_4_3 { shift_reg1_3_THRU_LUT4_0, shift_reg1[3] }
+ble_pack shift_reg1_RNO_3_0_LC_4_4_6 { shift_reg1_RNO_3[0] }
+ble_pack shift_reg1_0_LC_4_4_7 { shift_reg1_RNO[0], shift_reg1[0] }
+clb_pack LT_4_4 { shift_reg1_RNIMSC7_0_LC_4_4_0, shift_reg1_1_LC_4_4_1, shift_reg1_2_LC_4_4_2, shift_reg1_3_LC_4_4_3, shift_reg1_RNO_3_0_LC_4_4_6, shift_reg1_0_LC_4_4_7 }
+set_location LT_4_4 4 4
+ble_pack shift_reg1_RNO_1_0_LC_4_5_0 { shift_reg1_RNO_1[0] }
+ble_pack shift_reg2_7_LC_4_5_2 { shift_reg2_7_THRU_LUT4_0, shift_reg2[7] }
+ble_pack shift_reg2_5_LC_4_5_3 { shift_reg2_5_THRU_LUT4_0, shift_reg2[5] }
+ble_pack shift_reg2_4_LC_4_5_4 { shift_reg2_4_THRU_LUT4_0, shift_reg2[4] }
+ble_pack shift_reg2_6_LC_4_5_5 { shift_reg2_6_THRU_LUT4_0, shift_reg2[6] }
+ble_pack shift_reg2_8_LC_4_5_6 { shift_reg2_8_THRU_LUT4_0, shift_reg2[8] }
+clb_pack LT_4_5 { shift_reg1_RNO_1_0_LC_4_5_0, shift_reg2_7_LC_4_5_2, shift_reg2_5_LC_4_5_3, shift_reg2_4_LC_4_5_4, shift_reg2_6_LC_4_5_5, shift_reg2_8_LC_4_5_6 }
+set_location LT_4_5 4 5
+ble_pack GB_BUFFER_clk_in_c_g_THRU_LUT4_0_LC_5_1_0 { GB_BUFFER_clk_in_c_g_THRU_LUT4_0 }
+ble_pack shift_reg2_19_LC_5_1_1 { shift_reg2_19_THRU_LUT4_0, shift_reg2[19] }
+ble_pack GB_BUFFER_rst_count_i_g_19_THRU_LUT4_0_LC_5_1_3 { GB_BUFFER_rst_count_i_g_19_THRU_LUT4_0 }
+clb_pack LT_5_1 { GB_BUFFER_clk_in_c_g_THRU_LUT4_0_LC_5_1_0, shift_reg2_19_LC_5_1_1, GB_BUFFER_rst_count_i_g_19_THRU_LUT4_0_LC_5_1_3 }
+set_location LT_5_1 5 1
+ble_pack shift_reg1_RNI82OT_15_LC_5_2_0 { shift_reg1_RNI82OT[15] }
+ble_pack shift_reg1_10_LC_5_2_2 { shift_reg1_10_THRU_LUT4_0, shift_reg1[10] }
+ble_pack shift_reg1_15_LC_5_2_4 { shift_reg1_15_THRU_LUT4_0, shift_reg1[15] }
+ble_pack shift_reg1_11_LC_5_2_5 { shift_reg1_11_THRU_LUT4_0, shift_reg1[11] }
+ble_pack shift_reg1_RNIUA2K1_11_LC_5_2_6 { shift_reg1_RNIUA2K1[11] }
+ble_pack shift_reg1_12_LC_5_2_7 { shift_reg1_12_THRU_LUT4_0, shift_reg1[12] }
+clb_pack LT_5_2 { shift_reg1_RNI82OT_15_LC_5_2_0, shift_reg1_10_LC_5_2_2, shift_reg1_15_LC_5_2_4, shift_reg1_11_LC_5_2_5, shift_reg1_RNIUA2K1_11_LC_5_2_6, shift_reg1_12_LC_5_2_7 }
+set_location LT_5_2 5 2
+ble_pack rst_count_RNIVCHL1_15_LC_5_3_0 { rst_count_RNIVCHL1[15] }
+ble_pack shift_reg1_RNI6DD7_4_LC_5_3_2 { shift_reg1_RNI6DD7[4] }
+ble_pack shift_reg1_RNI2NK03_0_LC_5_3_3 { shift_reg1_RNI2NK03[0] }
+ble_pack shift_reg1_5_LC_5_3_5 { shift_reg1_5_THRU_LUT4_0, shift_reg1[5] }
+ble_pack shift_reg1_6_LC_5_3_6 { shift_reg1_6_THRU_LUT4_0, shift_reg1[6] }
+ble_pack shift_reg1_4_LC_5_3_7 { shift_reg1_4_THRU_LUT4_0, shift_reg1[4] }
+clb_pack LT_5_3 { rst_count_RNIVCHL1_15_LC_5_3_0, shift_reg1_RNI6DD7_4_LC_5_3_2, shift_reg1_RNI2NK03_0_LC_5_3_3, shift_reg1_5_LC_5_3_5, shift_reg1_6_LC_5_3_6, shift_reg1_4_LC_5_3_7 }
+set_location LT_5_3 5 3
+ble_pack shift_reg2_18_LC_5_4_0 { shift_reg2_18_THRU_LUT4_0, shift_reg2[18] }
+ble_pack shift_reg2_17_LC_5_4_2 { shift_reg2_17_THRU_LUT4_0, shift_reg2[17] }
+ble_pack shift_reg2_0_LC_5_4_4 { uut1.rx_data_ready_reg2_RNI5ULP, shift_reg2[0] }
+ble_pack shift_reg2_1_LC_5_4_5 { shift_reg2_1_THRU_LUT4_0, shift_reg2[1] }
+ble_pack rst_count_RNIVN0T1_20_LC_5_4_6 { rst_count_RNIVN0T1[20] }
+ble_pack shift_reg1_RNO_5_0_LC_5_4_7 { shift_reg1_RNO_5[0] }
+clb_pack LT_5_4 { shift_reg2_18_LC_5_4_0, shift_reg2_17_LC_5_4_2, shift_reg2_0_LC_5_4_4, shift_reg2_1_LC_5_4_5, rst_count_RNIVN0T1_20_LC_5_4_6, shift_reg1_RNO_5_0_LC_5_4_7 }
+set_location LT_5_4 5 4
+ble_pack shift_reg1_RNO_4_0_LC_5_5_4 { shift_reg1_RNO_4[0] }
+ble_pack shift_reg2_2_LC_5_5_5 { shift_reg2_2_THRU_LUT4_0, shift_reg2[2] }
+ble_pack shift_reg2_3_LC_5_5_6 { shift_reg2_3_THRU_LUT4_0, shift_reg2[3] }
+clb_pack LT_5_5 { shift_reg1_RNO_4_0_LC_5_5_4, shift_reg2_2_LC_5_5_5, shift_reg2_3_LC_5_5_6 }
+set_location LT_5_5 5 5
+ble_pack count_ext_1_LC_6_2_0 { count_ext_RNO[1], count_ext[1] }
+ble_pack from_ir_reg2_LC_6_2_4 { from_ir_reg2_THRU_LUT4_0, from_ir_reg2 }
+ble_pack from_ir_reg1_LC_6_2_5 { from_ir_reg1_THRU_LUT4_0, from_ir_reg1 }
+ble_pack rst_count_RNI82L61_10_LC_6_2_6 { rst_count_RNI82L61[10] }
+ble_pack rst_count_RNIV23E1_12_LC_6_2_7 { rst_count_RNIV23E1[12] }
+clb_pack LT_6_2 { count_ext_1_LC_6_2_0, from_ir_reg2_LC_6_2_4, from_ir_reg1_LC_6_2_5, rst_count_RNI82L61_10_LC_6_2_6, rst_count_RNIV23E1_12_LC_6_2_7 }
+set_location LT_6_2 6 2
+ble_pack rst_count_1_cry_1_c_LC_6_3_0 { rst_count_1_cry_1_c }
+ble_pack rst_count_2_LC_6_3_1 { rst_count_RNO[2], rst_count[2], rst_count_1_cry_2_c }
+ble_pack rst_count_3_LC_6_3_2 { rst_count_RNO[3], rst_count[3], rst_count_1_cry_3_c }
+ble_pack rst_count_4_LC_6_3_3 { rst_count_RNO[4], rst_count[4], rst_count_1_cry_4_c }
+ble_pack rst_count_5_LC_6_3_4 { rst_count_RNO[5], rst_count[5], rst_count_1_cry_5_c }
+ble_pack rst_count_6_LC_6_3_5 { rst_count_RNO[6], rst_count[6], rst_count_1_cry_6_c }
+ble_pack rst_count_7_LC_6_3_6 { rst_count_RNO[7], rst_count[7], rst_count_1_cry_7_c }
+ble_pack rst_count_8_LC_6_3_7 { rst_count_RNO[8], rst_count[8], rst_count_1_cry_8_c }
+clb_pack LT_6_3 { rst_count_1_cry_1_c_LC_6_3_0, rst_count_2_LC_6_3_1, rst_count_3_LC_6_3_2, rst_count_4_LC_6_3_3, rst_count_5_LC_6_3_4, rst_count_6_LC_6_3_5, rst_count_7_LC_6_3_6, rst_count_8_LC_6_3_7 }
+set_location LT_6_3 6 3
+ble_pack rst_count_9_LC_6_4_0 { rst_count_RNO[9], rst_count[9], rst_count_1_cry_9_c }
+ble_pack rst_count_10_LC_6_4_1 { rst_count_RNO[10], rst_count[10], rst_count_1_cry_10_c }
+ble_pack rst_count_11_LC_6_4_2 { rst_count_RNO[11], rst_count[11], rst_count_1_cry_11_c }
+ble_pack rst_count_12_LC_6_4_3 { rst_count_RNO[12], rst_count[12], rst_count_1_cry_12_c }
+ble_pack rst_count_13_LC_6_4_4 { rst_count_RNO[13], rst_count[13], rst_count_1_cry_13_c }
+ble_pack rst_count_14_LC_6_4_5 { rst_count_RNO[14], rst_count[14], rst_count_1_cry_14_c }
+ble_pack rst_count_15_LC_6_4_6 { rst_count_RNO[15], rst_count[15], rst_count_1_cry_15_c }
+ble_pack rst_count_16_LC_6_4_7 { rst_count_RNO[16], rst_count[16], rst_count_1_cry_16_c }
+clb_pack LT_6_4 { rst_count_9_LC_6_4_0, rst_count_10_LC_6_4_1, rst_count_11_LC_6_4_2, rst_count_12_LC_6_4_3, rst_count_13_LC_6_4_4, rst_count_14_LC_6_4_5, rst_count_15_LC_6_4_6, rst_count_16_LC_6_4_7 }
+set_location LT_6_4 6 4
+ble_pack rst_count_17_LC_6_5_0 { rst_count_RNO[17], rst_count[17], rst_count_1_cry_17_c }
+ble_pack rst_count_18_LC_6_5_1 { rst_count_RNO[18], rst_count[18], rst_count_1_cry_18_c }
+ble_pack rst_count_19_LC_6_5_2 { rst_count_RNO[19], rst_count[19], rst_count_1_cry_19_c }
+ble_pack rst_count_20_LC_6_5_3 { rst_count_RNO[20], rst_count[20] }
+ble_pack rst_count_0_LC_6_5_4 { rst_count_RNO[0], rst_count[0] }
+ble_pack rst_count_1_LC_6_5_6 { rst_count_RNO[1], rst_count[1] }
+clb_pack LT_6_5 { rst_count_17_LC_6_5_0, rst_count_18_LC_6_5_1, rst_count_19_LC_6_5_2, rst_count_20_LC_6_5_3, rst_count_0_LC_6_5_4, rst_count_1_LC_6_5_6 }
+set_location LT_6_5 6 5
+ble_pack uut1.o_rx_data_RNIRBOA_5_LC_6_6_5 { uut1.o_rx_data_RNIRBOA[5] }
+clb_pack LT_6_6 { uut1.o_rx_data_RNIRBOA_5_LC_6_6_5 }
+set_location LT_6_6 6 6
+ble_pack un5_count_ext_cry_1_c_LC_7_1_0 { un5_count_ext_cry_1_c }
+ble_pack count_ext_2_LC_7_1_1 { count_ext_RNO[2], count_ext[2], un5_count_ext_cry_2_c }
+ble_pack count_ext_3_LC_7_1_2 { count_ext_RNO[3], count_ext[3], un5_count_ext_cry_3_c }
+ble_pack count_ext_4_LC_7_1_3 { count_ext_RNO[4], count_ext[4] }
+clb_pack LT_7_1 { un5_count_ext_cry_1_c_LC_7_1_0, count_ext_2_LC_7_1_1, count_ext_3_LC_7_1_2, count_ext_4_LC_7_1_3 }
+set_location LT_7_1 7 1
+ble_pack count_ext_RNIEM1Q_1_LC_7_2_1 { count_ext_RNIEM1Q[1] }
+ble_pack CLKOS_RNI7KOJ1_LC_7_2_4 { CLKOS_RNI7KOJ1 }
+ble_pack from_ir_reg2_RNIPD7L_LC_7_2_6 { from_ir_reg2_RNIPD7L }
+ble_pack CLKOS_LC_7_2_7 { CLKOS_RNO, CLKOS }
+clb_pack LT_7_2 { count_ext_RNIEM1Q_1_LC_7_2_1, CLKOS_RNI7KOJ1_LC_7_2_4, from_ir_reg2_RNIPD7L_LC_7_2_6, CLKOS_LC_7_2_7 }
+set_location LT_7_2 7 2
+ble_pack count_3_LC_7_3_0 { count_RNO[3], count[3] }
+ble_pack count_0_LC_7_3_1 { count_RNO[0], count[0] }
+ble_pack count_2_LC_7_3_2 { count_RNO[2], count[2] }
+ble_pack count_1_LC_7_3_3 { count_RNO[1], count[1] }
+ble_pack rst_count_RNI10FM_7_LC_7_3_4 { rst_count_RNI10FM[7] }
+clb_pack LT_7_3 { count_3_LC_7_3_0, count_0_LC_7_3_1, count_2_LC_7_3_2, count_1_LC_7_3_3, rst_count_RNI10FM_7_LC_7_3_4 }
+set_location LT_7_3 7 3
+ble_pack CONSTANT_ONE_LUT4_LC_7_4_3 { CONSTANT_ONE_LUT4 }
+clb_pack LT_7_4 { CONSTANT_ONE_LUT4_LC_7_4_3 }
+set_location LT_7_4 7 4
+ble_pack uut1.rx_data_RNO_2_6_LC_7_5_2 { uut1.rx_data_RNO_2[6] }
+ble_pack uut1.rx_data_RNO_0_6_LC_7_5_3 { uut1.rx_data_RNO_0[6] }
+ble_pack uut1.rx_data_6_LC_7_5_4 { uut1.rx_data_RNO[6], uut1.rx_data[6] }
+ble_pack uut1.rx_data_7_LC_7_5_6 { uut1.rx_data_RNO[7], uut1.rx_data[7] }
+clb_pack LT_7_5 { uut1.rx_data_RNO_2_6_LC_7_5_2, uut1.rx_data_RNO_0_6_LC_7_5_3, uut1.rx_data_6_LC_7_5_4, uut1.rx_data_7_LC_7_5_6 }
+set_location LT_7_5 7 5
+ble_pack uut1.state_er_7_LC_7_6_1 { uut1.state_er_7_THRU_LUT4_0, uut1.state_er[7] }
+ble_pack uut1.state_er_8_LC_7_6_2 { uut1.state_er_8_THRU_LUT4_0, uut1.state_er[8] }
+ble_pack uut1.state_er_6_LC_7_6_4 { uut1.state_er_6_THRU_LUT4_0, uut1.state_er[6] }
+ble_pack uut1.state_er_5_LC_7_6_5 { uut1.state_er_5_THRU_LUT4_0, uut1.state_er[5] }
+ble_pack uut1.state_er_4_LC_7_6_6 { uut1.state_er_4_THRU_LUT4_0, uut1.state_er[4] }
+ble_pack uut1.state_er_3_LC_7_6_7 { uut1.state_er_3_THRU_LUT4_0, uut1.state_er[3] }
+clb_pack LT_7_6 { uut1.state_er_7_LC_7_6_1, uut1.state_er_8_LC_7_6_2, uut1.state_er_6_LC_7_6_4, uut1.state_er_5_LC_7_6_5, uut1.state_er_4_LC_7_6_6, uut1.state_er_3_LC_7_6_7 }
+set_location LT_7_6 7 6
+ble_pack uut1.state_er_RNI8D3K1_5_LC_7_7_3 { uut1.state_er_RNI8D3K1[5] }
+ble_pack uut1.rx_data_RNO_0_3_LC_7_7_4 { uut1.rx_data_RNO_0[3] }
+ble_pack uut1.rx_data_RNO_0_4_LC_7_7_5 { uut1.rx_data_RNO_0[4] }
+ble_pack uut1.rx_data_4_LC_7_7_6 { uut1.rx_data_RNO[4], uut1.rx_data[4] }
+clb_pack LT_7_7 { uut1.state_er_RNI8D3K1_5_LC_7_7_3, uut1.rx_data_RNO_0_3_LC_7_7_4, uut1.rx_data_RNO_0_4_LC_7_7_5, uut1.rx_data_4_LC_7_7_6 }
+set_location LT_7_7 7 7
+ble_pack count_ext_0_LC_8_1_0 { count_ext_RNO[0], count_ext[0] }
+clb_pack LT_8_1 { count_ext_0_LC_8_1_0 }
+set_location LT_8_1 8 1
+ble_pack uut1.rx_sampling_counter_1_LC_8_2_0 { uut1.rx_sampling_counter_RNO[1], uut1.rx_sampling_counter[1] }
+ble_pack uut1.rx_sampling_counter_0_LC_8_2_1 { uut1.rx_sampling_counter_RNO[0], uut1.rx_sampling_counter[0] }
+ble_pack uut1.rx_sampling_counter_3_LC_8_2_2 { uut1.rx_sampling_counter_RNO[3], uut1.rx_sampling_counter[3] }
+ble_pack uut1.rx_sampling_counter_2_LC_8_2_3 { uut1.rx_sampling_counter_RNO[2], uut1.rx_sampling_counter[2] }
+ble_pack uut1.modem_serial_data_LC_8_2_5 { uut1.modem_serial_data_RNO, uut1.modem_serial_data }
+clb_pack LT_8_2 { uut1.rx_sampling_counter_1_LC_8_2_0, uut1.rx_sampling_counter_0_LC_8_2_1, uut1.rx_sampling_counter_3_LC_8_2_2, uut1.rx_sampling_counter_2_LC_8_2_3, uut1.modem_serial_data_LC_8_2_5 }
+set_location LT_8_2 8 2
+ble_pack uut1.rx_sampling_clock_RNO_0_LC_8_3_0 { uut1.rx_sampling_clock_RNO_0 }
+ble_pack uut1.rx_sampling_clock_RNO_LC_8_3_1 { uut1.rx_sampling_clock_RNO }
+ble_pack clk_count_RNO_0_1_LC_8_3_2 { clk_count_RNO_0[1] }
+ble_pack clk_count_1_LC_8_3_3 { clk_count_RNO[1], clk_count[1] }
+ble_pack clk_count_RNIHMLO_5_LC_8_3_4 { clk_count_RNIHMLO[5] }
+ble_pack count_RNIH42R1_2_LC_8_3_5 { count_RNIH42R1[2] }
+ble_pack count_RNITIVF_1_LC_8_3_6 { count_RNITIVF[1] }
+ble_pack count_RNIGEIG_3_LC_8_3_7 { count_RNIGEIG[3] }
+clb_pack LT_8_3 { uut1.rx_sampling_clock_RNO_0_LC_8_3_0, uut1.rx_sampling_clock_RNO_LC_8_3_1, clk_count_RNO_0_1_LC_8_3_2, clk_count_1_LC_8_3_3, clk_count_RNIHMLO_5_LC_8_3_4, count_RNIH42R1_2_LC_8_3_5, count_RNITIVF_1_LC_8_3_6, count_RNIGEIG_3_LC_8_3_7 }
+set_location LT_8_3 8 3
+ble_pack un3_clk_count_cry_1_c_LC_8_4_0 { un3_clk_count_cry_1_c }
+ble_pack clk_count_2_LC_8_4_1 { clk_count_RNO[2], clk_count[2], un3_clk_count_cry_2_c }
+ble_pack clk_count_RNO_0_3_LC_8_4_2 { clk_count_RNO_0[3], un3_clk_count_cry_3_c }
+ble_pack clk_count_4_LC_8_4_3 { clk_count_RNO[4], clk_count[4], un3_clk_count_cry_4_c }
+ble_pack clk_count_5_LC_8_4_4 { clk_count_RNO[5], clk_count[5] }
+ble_pack clk_count_3_LC_8_4_6 { clk_count_RNO[3], clk_count[3] }
+clb_pack LT_8_4 { un3_clk_count_cry_1_c_LC_8_4_0, clk_count_2_LC_8_4_1, clk_count_RNO_0_3_LC_8_4_2, clk_count_4_LC_8_4_3, clk_count_5_LC_8_4_4, clk_count_3_LC_8_4_6 }
+set_location LT_8_4 8 4
+ble_pack uut1.rx_data_RNO_1_6_LC_8_5_0 { uut1.rx_data_RNO_1[6] }
+ble_pack uut1.rx_data_RNO_1_7_LC_8_5_2 { uut1.rx_data_RNO_1[7] }
+ble_pack uut1.state_er_RNI3VKT_5_LC_8_5_5 { uut1.state_er_RNI3VKT[5] }
+ble_pack uut1.rx_data_RNO_0_7_LC_8_5_6 { uut1.rx_data_RNO_0[7] }
+ble_pack uut1.state_RNIELAE_1_LC_8_5_7 { uut1.state_RNIELAE[1] }
+clb_pack LT_8_5 { uut1.rx_data_RNO_1_6_LC_8_5_0, uut1.rx_data_RNO_1_7_LC_8_5_2, uut1.state_er_RNI3VKT_5_LC_8_5_5, uut1.rx_data_RNO_0_7_LC_8_5_6, uut1.state_RNIELAE_1_LC_8_5_7 }
+set_location LT_8_5 8 5
+ble_pack uut1.rx_data_RNO_1_4_LC_8_6_0 { uut1.rx_data_RNO_1[4] }
+ble_pack uut1.state_er_RNIV1A91_7_LC_8_6_2 { uut1.state_er_RNIV1A91[7] }
+ble_pack uut1.rx_data_RNO_0_8_LC_8_6_3 { uut1.rx_data_RNO_0[8] }
+ble_pack uut1.rx_data_RNO_1_3_LC_8_6_4 { uut1.rx_data_RNO_1[3] }
+ble_pack uut1.rx_data_RNO_0_9_LC_8_6_5 { uut1.rx_data_RNO_0[9] }
+ble_pack uut1.state_RNID38F_1_LC_8_6_6 { uut1.state_RNID38F[1] }
+ble_pack uut1.rx_data_RNO_1_5_LC_8_6_7 { uut1.rx_data_RNO_1[5] }
+clb_pack LT_8_6 { uut1.rx_data_RNO_1_4_LC_8_6_0, uut1.state_er_RNIV1A91_7_LC_8_6_2, uut1.rx_data_RNO_0_8_LC_8_6_3, uut1.rx_data_RNO_1_3_LC_8_6_4, uut1.rx_data_RNO_0_9_LC_8_6_5, uut1.state_RNID38F_1_LC_8_6_6, uut1.rx_data_RNO_1_5_LC_8_6_7 }
+set_location LT_8_6 8 6
+ble_pack uut1.state_11_LC_8_7_0 { uut1.state_RNO[11], uut1.state[11] }
+ble_pack uut1.state_2_LC_8_7_2 { uut1.state_RNO[2], uut1.state[2] }
+ble_pack uut1.rx_data_3_LC_8_7_4 { uut1.rx_data_RNO[3], uut1.rx_data[3] }
+ble_pack uut1.rx_data_5_LC_8_7_5 { uut1.rx_data_RNO[5], uut1.rx_data[5] }
+ble_pack uut1.o_rx_data_6_LC_8_7_7 { uut1.o_rx_data_RNO[6], uut1.o_rx_data[6] }
+clb_pack LT_8_7 { uut1.state_11_LC_8_7_0, uut1.state_2_LC_8_7_2, uut1.rx_data_3_LC_8_7_4, uut1.rx_data_5_LC_8_7_5, uut1.o_rx_data_6_LC_8_7_7 }
+set_location LT_8_7 8 7
+ble_pack uut1.rx_data_RNO_0_5_LC_8_8_5 { uut1.rx_data_RNO_0[5] }
+clb_pack LT_8_8 { uut1.rx_data_RNO_0_5_LC_8_8_5 }
+set_location LT_8_8 8 8
+ble_pack uut1.rx_sampling_clock_LC_9_2_0 { uut1.rx_sampling_clock_THRU_LUT4_0, uut1.rx_sampling_clock }
+clb_pack LT_9_2 { uut1.rx_sampling_clock_LC_9_2_0 }
+set_location LT_9_2 9 2
+ble_pack uut1.rx_sampling_counter_RNO_0_3_LC_9_3_2 { uut1.rx_sampling_counter_RNO_0[3] }
+ble_pack uut1.rx_sampling_counter_RNO_0_2_LC_9_3_4 { uut1.rx_sampling_counter_RNO_0[2] }
+ble_pack uut1.rx_sampling_counter_RNI6JC31_3_LC_9_3_5 { uut1.rx_sampling_counter_RNI6JC31[3] }
+ble_pack uut1.rx_sampling_start_RNIQNMM1_LC_9_3_6 { uut1.rx_sampling_start_RNIQNMM1 }
+ble_pack clk_count_0_LC_9_3_7 { clk_count_RNO[0], clk_count[0] }
+clb_pack LT_9_3 { uut1.rx_sampling_counter_RNO_0_3_LC_9_3_2, uut1.rx_sampling_counter_RNO_0_2_LC_9_3_4, uut1.rx_sampling_counter_RNI6JC31_3_LC_9_3_5, uut1.rx_sampling_start_RNIQNMM1_LC_9_3_6, clk_count_0_LC_9_3_7 }
+set_location LT_9_3 9 3
+ble_pack uut1.rx_data_ready_reg1_LC_9_4_0 { uut1.rx_data_ready_reg1_THRU_LUT4_0, uut1.rx_data_ready_reg1 }
+ble_pack uut1.rx_sampling_start_LC_9_4_5 { uut1.rx_sampling_start_RNO, uut1.rx_sampling_start }
+ble_pack uut1.rx_data_ready_reg2_LC_9_4_6 { uut1.rx_data_ready_reg2_THRU_LUT4_0, uut1.rx_data_ready_reg2 }
+clb_pack LT_9_4 { uut1.rx_data_ready_reg1_LC_9_4_0, uut1.rx_sampling_start_LC_9_4_5, uut1.rx_data_ready_reg2_LC_9_4_6 }
+set_location LT_9_4 9 4
+ble_pack uut1.o_rx_data_1_LC_9_5_0 { uut1.o_rx_data_RNO[1], uut1.o_rx_data[1] }
+ble_pack uut1.o_rx_data_2_LC_9_5_1 { uut1.o_rx_data_RNO[2], uut1.o_rx_data[2] }
+ble_pack uut1.data_validation_LC_9_5_2 { uut1.data_validation_RNO, uut1.data_validation }
+ble_pack uut1.o_rx_data_3_LC_9_5_3 { uut1.o_rx_data_RNO[3], uut1.o_rx_data[3] }
+ble_pack uut1.state_1_LC_9_5_5 { uut1.state_RNO[1], uut1.state[1] }
+ble_pack uut1.state_0_LC_9_5_6 { uut1.state_RNO[0], uut1.state[0] }
+clb_pack LT_9_5 { uut1.o_rx_data_1_LC_9_5_0, uut1.o_rx_data_2_LC_9_5_1, uut1.data_validation_LC_9_5_2, uut1.o_rx_data_3_LC_9_5_3, uut1.state_1_LC_9_5_5, uut1.state_0_LC_9_5_6 }
+set_location LT_9_5 9 5
+ble_pack uut1.rx_sampling_clock_reg2_RNIL9O2_LC_9_6_4 { uut1.rx_sampling_clock_reg2_RNIL9O2 }
+ble_pack uut1.rx_data_RNO_1_8_LC_9_6_5 { uut1.rx_data_RNO_1[8] }
+ble_pack uut1.rx_data_8_LC_9_6_6 { uut1.rx_data_RNO[8], uut1.rx_data[8] }
+clb_pack LT_9_6 { uut1.rx_sampling_clock_reg2_RNIL9O2_LC_9_6_4, uut1.rx_data_RNO_1_8_LC_9_6_5, uut1.rx_data_8_LC_9_6_6 }
+set_location LT_9_6 9 6
+ble_pack uut1.rx_sampling_clock_reg2_LC_9_7_0 { uut1.rx_sampling_clock_reg2_THRU_LUT4_0, uut1.rx_sampling_clock_reg2 }
+ble_pack uut1.o_rx_data_0_LC_9_7_2 { uut1.o_rx_data_RNO[0], uut1.o_rx_data[0] }
+ble_pack uut1.rx_data_9_LC_9_7_4 { uut1.rx_data_RNO[9], uut1.rx_data[9] }
+ble_pack uut1.o_rx_data_4_LC_9_7_5 { uut1.o_rx_data_RNO[4], uut1.o_rx_data[4] }
+ble_pack uut1.rx_sampling_clock_reg1_LC_9_7_6 { uut1.rx_sampling_clock_reg1_THRU_LUT4_0, uut1.rx_sampling_clock_reg1 }
+ble_pack uut1.o_rx_data_5_LC_9_7_7 { uut1.o_rx_data_RNO[5], uut1.o_rx_data[5] }
+clb_pack LT_9_7 { uut1.rx_sampling_clock_reg2_LC_9_7_0, uut1.o_rx_data_0_LC_9_7_2, uut1.rx_data_9_LC_9_7_4, uut1.o_rx_data_4_LC_9_7_5, uut1.rx_sampling_clock_reg1_LC_9_7_6, uut1.o_rx_data_5_LC_9_7_7 }
+set_location LT_9_7 9 7
+ble_pack uut1.rx_data_RNO_1_9_LC_9_8_0 { uut1.rx_data_RNO_1[9] }
+clb_pack LT_9_8 { uut1.rx_data_RNO_1_9_LC_9_8_0 }
+set_location LT_9_8 9 8
+ble_pack uut2.state_11_LC_11_2_1 { uut2.state_11_THRU_LUT4_0, uut2.state[11] }
+clb_pack LT_11_2 { uut2.state_11_LC_11_2_1 }
+set_location LT_11_2 11 2
+ble_pack uut2.serial_data_RNO_0_LC_11_3_0 { uut2.serial_data_RNO_0 }
+ble_pack uut2.state_0_LC_11_3_2 { uut2.state_RNO[0], uut2.state[0] }
+ble_pack uut2.state_13_LC_11_3_3 { uut2.state_RNO[13], uut2.state[13] }
+clb_pack LT_11_3 { uut2.serial_data_RNO_0_LC_11_3_0, uut2.state_0_LC_11_3_2, uut2.state_13_LC_11_3_3 }
+set_location LT_11_3 11 3
+ble_pack uut2.serial_data_LC_11_4_0 { uut2.serial_data_RNO, uut2.serial_data }
+clb_pack LT_11_4 { uut2.serial_data_LC_11_4_0 }
+set_location LT_11_4 11 4
+ble_pack uut2.serial_data_RNO_3_LC_11_5_0 { uut2.serial_data_RNO_3 }
+clb_pack LT_11_5 { uut2.serial_data_RNO_3_LC_11_5_0 }
+set_location LT_11_5 11 5
+ble_pack uut2.tx_data_6_LC_11_6_3 { uut2.tx_data_6_THRU_LUT4_0, uut2.tx_data[6] }
+clb_pack LT_11_6 { uut2.tx_data_6_LC_11_6_3 }
+set_location LT_11_6 11 6
+ble_pack uut2.state_10_LC_12_3_0 { uut2.state_10_THRU_LUT4_0, uut2.state[10] }
+ble_pack uut2.state_1_LC_12_3_1 { uut2.state_1_THRU_LUT4_0, uut2.state[1] }
+ble_pack uut2.state_5_LC_12_3_2 { uut2.state_5_THRU_LUT4_0, uut2.state[5] }
+ble_pack uut2.state_4_LC_12_3_3 { uut2.state_4_THRU_LUT4_0, uut2.state[4] }
+ble_pack uut2.state_2_LC_12_3_5 { uut2.state_2_THRU_LUT4_0, uut2.state[2] }
+ble_pack uut2.state_3_LC_12_3_7 { uut2.state_3_THRU_LUT4_0, uut2.state[3] }
+clb_pack LT_12_3 { uut2.state_10_LC_12_3_0, uut2.state_1_LC_12_3_1, uut2.state_5_LC_12_3_2, uut2.state_4_LC_12_3_3, uut2.state_2_LC_12_3_5, uut2.state_3_LC_12_3_7 }
+set_location LT_12_3 12 3
+ble_pack uut2.serial_data_RNO_2_LC_12_4_1 { uut2.serial_data_RNO_2 }
+ble_pack uut2.serial_data_RNO_1_LC_12_4_2 { uut2.serial_data_RNO_1 }
+ble_pack uut2.serial_data_RNO_4_LC_12_4_5 { uut2.serial_data_RNO_4 }
+clb_pack LT_12_4 { uut2.serial_data_RNO_2_LC_12_4_1, uut2.serial_data_RNO_1_LC_12_4_2, uut2.serial_data_RNO_4_LC_12_4_5 }
+set_location LT_12_4 12 4
+ble_pack uut2.tx_data_5_LC_12_5_0 { uut2.tx_data_5_THRU_LUT4_0, uut2.tx_data[5] }
+ble_pack uut2.tx_data_1_LC_12_5_1 { uut2.tx_data_1_THRU_LUT4_0, uut2.tx_data[1] }
+ble_pack uut2.tx_data_0_LC_12_5_2 { uut2.tx_data_0_THRU_LUT4_0, uut2.tx_data[0] }
+ble_pack uut2.tx_data_3_LC_12_5_3 { uut2.tx_data_3_THRU_LUT4_0, uut2.tx_data[3] }
+ble_pack uut2.state_8_LC_12_5_4 { uut2.state_8_THRU_LUT4_0, uut2.state[8] }
+ble_pack uut2.state_7_LC_12_5_5 { uut2.state_7_THRU_LUT4_0, uut2.state[7] }
+ble_pack uut2.tx_data_2_LC_12_5_6 { uut2.tx_data_2_THRU_LUT4_0, uut2.tx_data[2] }
+ble_pack uut2.state_6_LC_12_5_7 { uut2.state_6_THRU_LUT4_0, uut2.state[6] }
+clb_pack LT_12_5 { uut2.tx_data_5_LC_12_5_0, uut2.tx_data_1_LC_12_5_1, uut2.tx_data_0_LC_12_5_2, uut2.tx_data_3_LC_12_5_3, uut2.state_8_LC_12_5_4, uut2.state_7_LC_12_5_5, uut2.tx_data_2_LC_12_5_6, uut2.state_6_LC_12_5_7 }
+set_location LT_12_5 12 5
+ble_pack uut2.tx_data_4_LC_12_6_6 { uut2.tx_data_4_THRU_LUT4_0, uut2.tx_data[4] }
+clb_pack LT_12_6 { uut2.tx_data_4_LC_12_6_6 }
+set_location LT_12_6 12 6
+ble_pack uut1.o_rx_data_RNIP9OA_3_LC_12_7_1 { uut1.o_rx_data_RNIP9OA[3] }
+ble_pack uut1.o_rx_data_RNIQAOA_4_LC_12_7_4 { uut1.o_rx_data_RNIQAOA[4] }
+clb_pack LT_12_7 { uut1.o_rx_data_RNIP9OA_3_LC_12_7_1, uut1.o_rx_data_RNIQAOA_4_LC_12_7_4 }
+set_location LT_12_7 12 7
+ble_pack uut1.o_rx_data_RNIN7OA_1_LC_12_9_6 { uut1.o_rx_data_RNIN7OA[1] }
+clb_pack LT_12_9 { uut1.o_rx_data_RNIN7OA_1_LC_12_9_6 }
+set_location LT_12_9 12 9
+ble_pack uut1.o_rx_data_RNIO8OA_2_LC_12_11_3 { uut1.o_rx_data_RNIO8OA[2] }
+ble_pack uut1.o_rx_data_RNIM6OA_0_LC_12_11_4 { uut1.o_rx_data_RNIM6OA[0] }
+clb_pack LT_12_11 { uut1.o_rx_data_RNIO8OA_2_LC_12_11_3, uut1.o_rx_data_RNIM6OA_0_LC_12_11_4 }
+set_location LT_12_11 12 11
+set_location CLKOS_RNI7KOJ1_0 6 0
+set_location rst_count_RNIVN0T1_0[20] 0 9
+set_location ice_pll_inst.PLLOUTCORE_derived_clock_RNIPF83 6 17
+set_location count_RNIH42R1_0[2] 13 8
+set_location rst_count_RNI3HF2_0[19] 0 8
+set_io test3 48
+set_io led[7] 34
+set_io to_ir 137
+set_io test2 47
+set_io sd 107
+set_io led[6] 22
+set_io led[2] 97
+set_io i_serial_data 144
+set_io test1 45
+set_io o_serial_data 8
+set_io led[5] 24
+set_io led[1] 98
+set_io led[4] 95
+set_io led[0] 99
+set_io led[3] 96
+set_io from_ir 106
+set_io clk_in 21
