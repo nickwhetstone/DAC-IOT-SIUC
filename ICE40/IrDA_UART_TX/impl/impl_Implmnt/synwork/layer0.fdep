@@ -1,0 +1,32 @@
+#OPTIONS:"|-layerid|0|-orig_srs|C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\impl\\impl_Implmnt\\synwork\\impl_comp.srs|-prodtype|synplify_pro|-primux|-fixsmult|-infer_seqShift|-ice|-sdff_counter|-nram|-divnmod|-nostructver|-I|C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\impl\\|-I|C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib|-v2001|-devicelib|C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\generic\\sb_ice40.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\bin64\\c_ver.exe":1486225048
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\generic\\sb_ice40.v":1486225068
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\vlog\\hypermods.v":1486225074
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\vlog\\umr_capim.v":1486225074
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\vlog\\scemi_objects.v":1486225074
+#CUR:"C:\\lscc\\iCEcube2.2016.12\\synpbase\\lib\\vlog\\scemi_pipes.svh":1486225074
+#CUR:"C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\uart_source\\uart_tx_fsm.v":1489341993
+#CUR:"C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\uart_source\\ice_pll\\ice_pll.v":1489341993
+#CUR:"C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\uart_source\\uart_ir_tx_ice.v":1491081669
+#CUR:"C:\\Users\\Ed Rod\\Downloads\\Lattice Semiconductor.Application_Library_4\\IrDA_UART_TX\\uart_source\\uart_rx_fsm.v":1489341993
+#numinternalfiles:5
+#defaultlanguage:verilog
+0			"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_tx_fsm.v" verilog
+1			"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\ice_pll\ice_pll.v" verilog
+2			"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v" verilog
+3			"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_rx_fsm.v" verilog
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 1 3 0
+3 -1
+#Dependency Lists(Users Of)
+0 2
+1 2
+2 -1
+3 2
+#Design Unit to File Association
+module work uart_tx_fsm 0
+module work ice_pll 1
+module work uart_rx_fsm 3
+module work uart 2
