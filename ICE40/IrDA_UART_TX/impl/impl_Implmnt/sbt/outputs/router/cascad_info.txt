@@ -1,0 +1,15 @@
+[VIC]
+CLKOS3_2_cascade_=ltout:in0
+G_7_a0_1_cascade_=ltout:in2
+bit_sample_en_cascade_=ltout:in0
+i_start_tx_9_cascade_=ltout:in1
+ir_tx_2_cascade_=ltout:in0
+rx_rdy_16_cascade_=ltout:in3
+un1_rst_countlt14_0_cascade_=ltout:in3
+un1_rst_countlt9_0_cascade_=ltout:in3
+uut1.N_217_0_cascade_=ltout:in1
+uut1.N_221_0_2_cascade_=ltout:in0
+uut1.N_221_0_5_cascade_=ltout:in1
+uut1.rx_data_16_m_6_cascade_=ltout:in3
+uut1.rx_data_35_0_0_6_cascade_=ltout:in1
+uut2.serial_data_24_iv_3_cascade_=ltout:in2

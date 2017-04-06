@@ -1,0 +1,16 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N: CG364 :"C:\lscc\iCEcube2.2016.12\synpbase\lib\generic\sb_ice40.v":698:7:698:19|Synthesizing module SB_PLL40_CORE in library work.
+@N: CG364 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\ice_pll\ice_pll.v":1:7:1:13|Synthesizing module ice_pll in library work.
+@N: CG364 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_rx_fsm.v":39:7:39:17|Synthesizing module uart_rx_fsm in library work.
+@N: CG364 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_tx_fsm.v":39:7:39:17|Synthesizing module uart_tx_fsm in library work.
+@N: CG179 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_tx_fsm.v":123:37:123:45|Removing redundant assignment.
+@N: CG364 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":61:7:61:10|Synthesizing module uart in library work.
+@N: CL189 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":91:0:91:5|Register bit rst_count[22] is always 1.
+@N: CL159 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":67:22:67:34|Input i_serial_data is unused.
+@N: CL201 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_tx_fsm.v":133:4:133:9|Trying to extract state machine for register state.
+@N: CL201 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_rx_fsm.v":123:4:123:9|Trying to extract state machine for register state.
+@N|Running in 64-bit mode
+@N: NF107 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":61:7:61:10|Selected library: work cell: uart view verilog as top level
+@N: NF107 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":61:7:61:10|Selected library: work cell: uart view verilog as top level
+

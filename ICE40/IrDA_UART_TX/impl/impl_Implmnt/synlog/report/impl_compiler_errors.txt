@@ -1,0 +1,2 @@
+@E: CG426 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":170:27:170:35|Assignment target i_tx_data must be of type reg or genvar
+

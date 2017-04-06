@@ -1,0 +1,32 @@
+---------------------------------------
+Resource Usage Report for uart 
+
+Mapping to part: ice40hx1ktq144
+Cell usage:
+GND             3 uses
+SB_CARRY        23 uses
+SB_DFF          32 uses
+SB_DFFE         41 uses
+SB_DFFER        23 uses
+SB_DFFES        2 uses
+SB_DFFR         29 uses
+SB_DFFS         2 uses
+SB_GB           5 uses
+SB_PLL40_CORE   1 use
+VCC             3 uses
+SB_LUT4         127 uses
+
+I/O ports: 17
+I/O primitives: 16
+SB_GB_IO       1 use
+SB_IO          15 uses
+
+I/O Register bits:                  0
+Register bits not including I/Os:   129 (10%)
+
+@S |Mapping Summary:
+Total  LUTs: 127 (9%)
+
+Distribution of All Consumed LUTs = LUT4 
+Distribution of All Consumed Luts 127 = 127 
+

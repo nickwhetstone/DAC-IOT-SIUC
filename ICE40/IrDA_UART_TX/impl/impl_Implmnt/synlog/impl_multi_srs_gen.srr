@@ -1,0 +1,14 @@
+Synopsys Netlist Linker, version comp2016q2rc, Build 192R, built Jul  5 2016
+@N|Running in 64-bit mode
+File C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\impl\impl_Implmnt\synwork\impl_comp.srs changed - recompiling
+@N: NF107 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":61:7:61:10|Selected library: work cell: uart view verilog as top level
+@N: NF107 :"C:\Users\Ed Rod\Downloads\Lattice Semiconductor.Application_Library_4\IrDA_UART_TX\uart_source\uart_ir_tx_ice.v":61:7:61:10|Selected library: work cell: uart view verilog as top level
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Tue Apr 04 09:56:46 2017
+
+###########################################################]
