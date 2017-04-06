@@ -4,7 +4,6 @@
 	<title>Data -- DAC IOT SIUC Testing</title>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<script src="./js/jquery-3.1.1.min.js"></script>
-	<script src="./js/chart.js"></script>
 
 	<style type="text/css">
 	#light {
@@ -56,27 +55,51 @@
 
 	<h2>Room Traffic Analytics</h2>
 
-	<p>Traffic since page load: <span id="traffic"></span></p>
-	<p>Average traffic per hour since page load: <span id="avgTraffic"></span></p>
+	<p>Traffic since page load: <span id="traffic"></span> people</p>
+	<p>Average traffic per hour since page load: <span id="avgTraffic"></span> people/hour</p>
 
 	<script type="text/javascript">
+		var startTime = new Date();
 		
-		/*setInterval(function() {
+		setInterval(function() {
 			//make the AJAX call
 			$.ajax({
 					url: '/update-people-chart',
 					type: 'POST',
 					success: function(data) {
-					  appendData(data.x, data.y);
+					  updateNumbers(data);
 					},
 				});
-		},1000);*/
-		var lights = document.getElementsByClassName("light");
+		},100);
+		var light = document.getElementById("light");
+
 
 		document.addEventListener('click', switchLight);
-		function switchLight(lightNumber) {
-			$("#light").toggleClass("led-red led-green");
-		}	
+		function switchLight(color) {
+			if (!color.length) {
+				$("#light").toggleClass("led-red led-green");
+			}
+			else {
+				light.classList.remove(color == "green" ? "led-red" : "led-green");
+				light.classList.add("led-" + color);
+			}
+		}
+
+		function updateNumbers(data) {
+			var endTime = new Date();
+			var hours = (endTime - startTime)/3600000;
+			var streamBroken = data.streamBroken;
+			
+			document.getElementById('traffic').value = data.y;
+			document.getElementById('avgTraffic').value = Math.round(data.y/hours);
+
+			if (streamBroken && light.classList.contains("led-green")) {
+				switchLight("red");
+			}
+			else if (!streamBroken && light.classList.contains("led-red")) {
+				switchLight("green");
+			}			
+		}
 	</script>
 </body>
 </html>
