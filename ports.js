@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'publicDacaIot')));
 
 //wait for a connection
-app.listen(3000, function () {
-  console.log('Server is running. Point your browser to: http://localhost:3000. zhu ni hao yun');
+app.listen(80, '0.0.0.0', function () {
+  console.log('Server is running. Point your browser to: http://localhost. zhu ni hao yun');
 });
 
 /***************************************************
@@ -44,40 +44,18 @@ app.listen(3000, function () {
 
 ***************************************************/
 
-var updateMade = false;
-var peopleCount = 0;
-var timeCount = 0;
-var TX_RECEIVED = true;
-
 app.post('/update-people-chart',function(req, res){
-	
+	var currentDate = new Date();
 	res.setHeader('Content-Type', 'application/json');
 
-	if(updateMade && !TX_SERVER) {
+	if(EVENT_VAL != '' && !TX_SERVER) {
 		res.send(JSON.stringify({
-			x: timeCount,
-			y: peopleCount
+			x: currentDate.toJson(),
+			y: PEOPLE_COUNT
 		}));
-		updateMade = false;
+		EVENT_VAL = '';
 	}
 });
-
-// check every interval to see if data not received from TX
-setInterval(function() {
-	if(!TX_SERVER) {
-		if(TX_RECEIVED) {
-			TX_RECEIVED = false;
-		} else {
-			// whoa, no TX received!
-			peopleCount++;
-			updateMade = true;
-		}
-	}
-}, 100);
-setInterval(function() {
-	// there are much better ways to do this..
-	timeCount++;
-}, 10000);
 
 // TODO - ADD A RESET BUTTON
 function resetPeopleChart() {
@@ -94,30 +72,156 @@ function resetPeopleChart() {
 
 var SerialPort = require("serialport");
 
-// --unsafe-perm
-var serialPort = new SerialPort("/dev/ttyUSB1", {
+var STICK_1_MSG = '1'; // INSIDE -- Upper Right Facing Towards Pi
+var STICK_2_MSG = '2'; // OUTSIDE -- Bottom Right Facing Towards Pi
+var TX_1_RECEIVED = true;
+var TX_2_RECEIVED = true;
+var RX_1_TIME_SINCE_TRIGGER = 0;
+var RX_2_TIME_SINCE_TRIGGER = 0;
+var RX_WAIT_INTERVAL = 100;
+var EVENT_WAIT_INTERVAL = 10;
+var TRIGGERED_FIRST = ''; // inside or outside
+var EVENT_VAL = ''; // entrance or exit
+var PEOPLE_COUNT = 0;
+
+/************** Event Handlers ***********************/
+
+setInterval(function() {
+	// is there an event on one side
+	if( TRIGGERED_FIRST == '' && RX_1_TIME_SINCE_TRIGGER > 0) {
+		// inside triggered
+		TRIGGERED_FIRST = 'inside';
+		
+	} else if( TRIGGERED_FIRST == '' && RX_2_TIME_SINCE_TRIGGER > 0 ) {
+		// outside triggered
+		TRIGGERED_FIRST = 'outside';
+		
+	} else if(TRIGGERED_FIRST == 'outside' && RX_1_TIME_SINCE_TRIGGER > 0) {
+		// walked in
+		EVENT_VAL = 'entrance';
+		TRIGGERED_FIRST = '';
+	} else if(TRIGGERED_FIRST == 'inside' && RX_2_TIME_SINCE_TRIGGER > 0) {
+		// walked out
+		EVENT_VAL = 'exit';
+		TRIGGERED_FIRST = '';
+	}
+	
+	if( EVENT_VAL != '') {
+		// handle event
+		
+		if( EVENT_VAL == 'exit' ) {
+			updatePeopleCount('decrease');
+		} else if ( EVENT_VAL == 'entrance' ) {
+			updatePeopleCount('increase');
+		}
+		
+	}
+}, EVENT_WAIT_INTERVAL);
+
+
+function updatePeopleCount(commandType) {
+	// adjust people count
+	if( commandType == "increase" ) {
+		PEOPLE_COUNT++;
+	} else if( commandType == "decrease" ) {
+		PEOPLE_COUNT--;
+	}
+	
+	// error checking
+	if(PEOPLE_COUNT < 0) {
+		PEOPLE_COUNT = 0;
+	}
+}
+
+/************** End Event Handlers  ***********************/
+
+
+/************** Stick 1 ***********************/
+
+// assign the port that we are connecting to the icestick with
+var serialPort_1 = new SerialPort("/dev/ttyUSB1", {
   baudrate: 115200,
 });
 
-serialPort.on("open", function () {
-  console.log('port opened');
-
-  
+// open the port
+serialPort_1.on("open", function () {
+  console.log('port 1 opened');
   if( TX_SERVER ) {
 		setInterval(function() {
 			// send data to icestick
-			serialPort.write("~");
+			serialPort.write(STICK_1_MSG);
 		}, 10); // 10 milliseconds for now
 	}
 });
 
-
-serialPort.on('data', function(data) {
+// if we are the receiver, listen for incoming messages
+serialPort_1.on('data', function(data) {
+	var tx_rcv = data.toString('ascii');	
 	if( !TX_SERVER ) {
 		console.log(data.toString('ascii'));
-		TX_RECEIVED = true;
+		if( tx_rcv == STICK_1_MSG ) {
+			TX_1_RECEIVED = true
+		}
 	}
- })
+})
 
+// check every interval to see if data not received from TX
+setInterval(function() {
+	if(!TX_SERVER) {
+		if(TX_1_RECEIVED) {
+			TX_1_RECEIVED = false;
+			RX_1_TIME_SINCE_TRIGGER = 0;
+		} else {
+			// whoa, no TX received!
+			// event occurred
+			RX_1_TIME_SINCE_TRIGGER++:
+		}
+	}
+}, RX_WAIT_INTERVAL);
 
+/************** End Stick 1 ***********************/
 
+/************** Stick 2 ***********************/
+
+// assign the port that we are connecting to the icestick with
+var serialPort_2 = new SerialPort("/dev/ttyUSB2", {
+  baudrate: 115200,
+});
+
+// open the port
+serialPort_2.on("open", function () {
+  console.log('port 2 opened');
+  if( TX_SERVER ) {
+		setInterval(function() {
+			// send data to icestick
+			serialPort.write(STICK_2_MSG);
+		}, 10); // 10 milliseconds for now
+	}
+});
+
+// if we are the receiver, listen for incoming messages
+serialPort_2.on('data', function(data) {
+	var tx_rcv = data.toString('ascii');
+	if( !TX_SERVER ) {
+		console.log(data.toString('ascii'));
+		if( tx_rcv == STICK_2_MSG ) {
+			TX_2_RECEIVED = true
+		}
+	}
+})
+
+// check every interval to see if data not received from TX
+setInterval(function() {
+	if(!TX_SERVER) {
+		if(TX_2_RECEIVED) {
+			TX_2_RECEIVED = false;
+			RX_2_TIME_SINCE_TRIGGER = 0;
+		} else {
+			// whoa, no TX received!
+			// event occurred
+			RX_2_TIME_SINCE_TRIGGER++:
+		}
+	}
+}, RX_WAIT_INTERVAL);
+
+/************** End Stick 2 ***********************/
