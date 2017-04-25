@@ -8,5 +8,4 @@ sudo ifdown wlan0
 sudo service dnsmasq start
 sudo service hostapd start
 sudo ifup wlan0
-sudo node /home/pi/Downloads/dac-iot-siuc/ports.js tx
-
+sudo node /home/pi/Desktop/dac-iot-siuc/dacaTestFile.js

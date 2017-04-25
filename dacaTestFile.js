@@ -48,14 +48,10 @@ app.listen(80, '0.0.0.0', function () {
 app.post('/update-people-chart',function(req, res){
 	var currentDate = new Date();
 	res.setHeader('Content-Type', 'application/json');
-
-	if(EVENT_VAL != '' && !TX_SERVER) {
-		res.send(JSON.stringify({
-			x: currentDate.toJson(),
-			y: PEOPLE_COUNT
-		}));
-		EVENT_VAL = '';
-	}
+	res.send(JSON.stringify({
+		x: currentDate,
+		y: PEOPLE_COUNT
+	}));
 });
 
 // TODO - ADD A RESET BUTTON
@@ -120,8 +116,8 @@ setInterval(function() {
 			console.log('PEOPLE_COUNT: ' + PEOPLE_COUNT);
 			console.log('RX_1_TIME_SINCE_TRIGGER: ' + RX_1_TIME_SINCE_TRIGGER);
 			console.log('RX_2_TIME_SINCE_TRIGGER: ' + RX_2_TIME_SINCE_TRIGGER);
-			EVENT_VAL = '';
-			
+									EVENT_VAL = '';
+
 			WAIT = true;
 			console.log('start wait');
 
