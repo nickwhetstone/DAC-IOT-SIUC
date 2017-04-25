@@ -84,8 +84,7 @@ var EVENT_WAIT_INTERVAL = 100;
 var TRIGGERED_FIRST = ''; // inside or outside
 var EVENT_VAL = ''; // entrance or exit
 var PEOPLE_COUNT = 0;
-
-
+var WAIT = false;
 /************** Event Handlers ***********************/
 
 setInterval(function() {
@@ -103,36 +102,41 @@ setInterval(function() {
 	} else if(TRIGGERED_FIRST == 'outside' && RX_1_TIME_SINCE_TRIGGER > 0) {
 		// walked in
 		EVENT_VAL = 'entrance';
-		//TRIGGERED_FIRST = '';
 	} else if(TRIGGERED_FIRST == 'inside' && RX_2_TIME_SINCE_TRIGGER > 0) {
 		// walked out
 		EVENT_VAL = 'exit';
-		//TRIGGERED_FIRST = '';
 	}
-			console.log('TRIGGERED_FIRST: ' + TRIGGERED_FIRST);
-		console.log('EVENT_VAL: ' + EVENT_VAL);
-		console.log('PEOPLE_COUNT: ' + PEOPLE_COUNT);
-		console.log('RX_1_TIME_SINCE_TRIGGER: ' + RX_1_TIME_SINCE_TRIGGER);
-		console.log('RX_2_TIME_SINCE_TRIGGER: ' + RX_2_TIME_SINCE_TRIGGER);
+	
 	if( EVENT_VAL != '') {
 		// handle event
-		if( EVENT_VAL == 'exit' ) {
-			updatePeopleCount('decrease');
-			while(RX_2_TIME_SINCE_TRIGGER > 0){
-						console.log('waiting for full exit: ');
-				};
-		} else if ( EVENT_VAL == 'entrance' ) {
-			updatePeopleCount('increase');
-			while(RX_1_TIME_SINCE_TRIGGER > 0){
-										console.log('waiting for full entrance: ');
+		if(!WAIT) {
+			if( EVENT_VAL == 'exit' ) {
+				updatePeopleCount('decrease');
+			} else if ( EVENT_VAL == 'entrance' ) {
+				updatePeopleCount('increase');
+			}
+			console.log('TRIGGERED_FIRST: ' + TRIGGERED_FIRST);
+			console.log('EVENT_VAL: ' + EVENT_VAL);
+			console.log('PEOPLE_COUNT: ' + PEOPLE_COUNT);
+			console.log('RX_1_TIME_SINCE_TRIGGER: ' + RX_1_TIME_SINCE_TRIGGER);
+			console.log('RX_2_TIME_SINCE_TRIGGER: ' + RX_2_TIME_SINCE_TRIGGER);
+			EVENT_VAL = '';
+			
+			WAIT = true;
+			console.log('start wait');
 
-				};
+			setTimeout(function() {
+					WAIT = false;
+					console.log('done waiting');
+						EVENT_VAL = '';
+			TRIGGERED_FIRST = '';
+			RX_1_TIME_SINCE_TRIGGER = 0;
+			RX_2_TIME_SINCE_TRIGGER = 0;
+			}, 500);
+			
+		} else {
+		
 		}
-		
-
-		TRIGGERED_FIRST = '';
-		EVENT_VAL = '';
-		
 	}
 }, EVENT_WAIT_INTERVAL);
 
@@ -186,6 +190,7 @@ serialPort_1.on('data', function(data) {
 		} else {
 			//console.log('NOT rcvd');
 		}
+		//console.log(RX_1_TIME_SINCE_TRIGGER);
 	}
 })
 
@@ -235,6 +240,7 @@ serialPort_2.on('data', function(data) {
 		} else {
 			// console.log('NOT rcvd2');
 		}
+		//console.log(RX_2_TIME_SINCE_TRIGGER);
 	}
 })
 
@@ -253,3 +259,4 @@ setInterval(function() {
 }, RX_WAIT_INTERVAL);
 
 /************** End Stick 2 ***********************/
+
