@@ -47,17 +47,17 @@
 
 <body>
 	<canvas id="myChart" style="height: 300; width: 70%;"></canvas>
-	<p>Add data points manually below.</p>
-	<form id="addData">
+	<!--<p>Add data points manually below.</p>-->
+	<!--<form id="addData">
 		<div class="form_group"><label for="time">Time: </label><input type="text" name="time" id="time"></div>
 		<div class="form_group"><label for="people">Number of people: </label><input type="text" name="people" id="people"></div>
 		<div class="form_group"><input type="submit" value="Add"></div>
-	</form>
+	</form>-->
 	<label for="values">Data: </label><textarea id="values"></textarea>
 
-	<h1>DAC IOT</h1>
+	<!--<h1>DAC IOT</h1>-->
 	
-	<!--<div id="light" class="go"></div>-->
+	<!--<div id="light" class="go"></div>
 	<div class="led-box">
 		<div id="light" class="led-green"></div>
 	</div>
@@ -65,7 +65,7 @@
 	<h2>Room Traffic Analytics</h2>
 
 	<p>Traffic since page load: <span id="traffic"></span> people</p>
-	<p>Average traffic per hour since page load: <span id="avgTraffic"></span> people/hour</p>
+	<p>Average traffic per hour since page load: <span id="avgTraffic"></span> people/hour</p>-->
 
 	<script type="text/javascript">
 			var ctx = document.getElementById("myChart").getContext("2d");
@@ -124,10 +124,10 @@
 		var dataSet = scatterChart.data.datasets[0];
 		var textArea = document.getElementById('values');
 		
-		document.getElementById("addData").addEventListener("submit", function(e) {
+		/*document.getElementById("addData").addEventListener("submit", function(e) {
 			e.preventDefault();
 			appendData(document.getElementById('time').value, document.getElementById('people').value);
-		});
+		});*/
 		
 		function appendData(datax,datay) { // time, people
 				scatterChart.data.datasets[0].data.push({x:datax,y:datay});
