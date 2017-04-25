@@ -13,7 +13,7 @@ var express = require('express'),
 	//require the path nodejs module
 	path = require("path");
 var exec = require("child_process").exec
-var TX_SERVER = false; // false by default
+var TX_SERVER = false; // rx by default
 
 /*************** get user input for whether this is a TX or RX server *************/
 
@@ -21,6 +21,7 @@ process.argv.forEach(function (val, index, array) {
   if(val == "tx") 
   {
 		TX_SERVER = true;
+		console.log("TX MODE");
   }
 });
 
@@ -72,8 +73,8 @@ function resetPeopleChart() {
 
 var SerialPort = require("serialport");
 
-var STICK_1_MSG = '1'; // INSIDE -- Upper Right Facing Towards Pi
-var STICK_2_MSG = '2'; // OUTSIDE -- Bottom Right Facing Towards Pi
+var STICK_1_MSG = '¬'; // INSIDE -- Upper Right Facing Towards Pi
+var STICK_2_MSG = '~'; // OUTSIDE -- Bottom Right Facing Towards Pi
 var TX_1_RECEIVED = true;
 var TX_2_RECEIVED = true;
 var RX_1_TIME_SINCE_TRIGGER = 0;
@@ -108,7 +109,7 @@ setInterval(function() {
 	
 	if( EVENT_VAL != '') {
 		// handle event
-		
+		console.log(EVENT_VAL);
 		if( EVENT_VAL == 'exit' ) {
 			updatePeopleCount('decrease');
 		} else if ( EVENT_VAL == 'entrance' ) {
@@ -149,7 +150,9 @@ serialPort_1.on("open", function () {
   if( TX_SERVER ) {
 		setInterval(function() {
 			// send data to icestick
-			serialPort.write(STICK_1_MSG);
+					console.log("TX Writing: " + STICK_1_MSG);
+
+			serialPort_1.write(STICK_1_MSG);
 		}, 10); // 10 milliseconds for now
 	}
 });
@@ -174,7 +177,7 @@ setInterval(function() {
 		} else {
 			// whoa, no TX received!
 			// event occurred
-			RX_1_TIME_SINCE_TRIGGER++:
+			RX_1_TIME_SINCE_TRIGGER++;
 		}
 	}
 }, RX_WAIT_INTERVAL);
@@ -184,7 +187,7 @@ setInterval(function() {
 /************** Stick 2 ***********************/
 
 // assign the port that we are connecting to the icestick with
-var serialPort_2 = new SerialPort("/dev/ttyUSB2", {
+var serialPort_2 = new SerialPort("/dev/ttyUSB3", {
   baudrate: 115200,
 });
 
@@ -194,7 +197,7 @@ serialPort_2.on("open", function () {
   if( TX_SERVER ) {
 		setInterval(function() {
 			// send data to icestick
-			serialPort.write(STICK_2_MSG);
+			serialPort_2.write(STICK_2_MSG);
 		}, 10); // 10 milliseconds for now
 	}
 });
@@ -219,7 +222,7 @@ setInterval(function() {
 		} else {
 			// whoa, no TX received!
 			// event occurred
-			RX_2_TIME_SINCE_TRIGGER++:
+			RX_2_TIME_SINCE_TRIGGER++;
 		}
 	}
 }, RX_WAIT_INTERVAL);
