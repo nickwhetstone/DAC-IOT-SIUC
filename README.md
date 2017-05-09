@@ -49,7 +49,7 @@ The important files and folders are the following:
 <li>Wait until you see the LED pattern change on both FPGAs change.</li>
 <li>Plug in the Raspberry Pi configured for RX to a power source.</li>
 <li>On your mobile phone / desktop / laptop, look for the wifi network labeled MTAV.</li>
-<li>Access the network with the password: 12345</li>
+<li>Access the network with the password: 12345678</li>
 <li>Navigate to any page (NOTE: Cached pages tend to cause problems)</li>
 <li>Walk through the configured doorway</li>
 <li>Enjoy!</li>
