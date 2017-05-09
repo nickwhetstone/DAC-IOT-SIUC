@@ -18,7 +18,7 @@ The important files and folders are the following:
 
 <h1> Setup Instructions (Raspbian Linux)</h1>
 
-<ol> Server Setup
+<ol> <h2> Server Setup </h2>
 <li>Clone this repository</li>
 <li>Install node and npm (Google it if you do not already have it, you will need recent versions)</li>
 <li>Inside the base repository folder ( the one containing the package.json ) type in the bash terminal: npm install</li>
@@ -30,20 +30,20 @@ The important files and folders are the following:
 </ol>
 
 
-<ol> FPGA Setup
+<ol> <h2> FPGA Setup </h2> 
 <li>If you have not already, clone this repository.</li>
 <li>(On a machine other than your Raspberry Pi) Download and install IceCube2 and Diamond Programmer. This project works with the ICE40HX1K FPGA offered by Lattice, and these are an IDE and bitstream generator offered through Lattice. </li>
 <li>If you wish to modify the source of the FPGA projects, you will have to view the Help section of the IceCube2 IDE. Otherwise, you will open up diamond programmer and use the DiamondProgrammerSetup.xcf as the configuration file</li>
 <li>At this point, you either use your generated bitstreams OR you use the ones we provided in this project. Flash the 3v_RX.hex and 3V_TX.hex to the RX and TX nodes, respectively. (RECOMMENDED: Label which are TX and which are RX)</li>
 </ol>
 
-<ol> Hardware Setup
+<ol> <h2> Hardware Setup </h2>
 <li>Connect the FPGAs that are flashed with the RX nodes to the Raspberry Pi that was configured to RX. To do this, the FPGA intended to be on the outside of the door (where people walk in) should be attached either directly or through an extension cord to the Bottom Right Port that is Facing Towards the Raspberry Pi. The FPGA intended to be on the inside is to be connected to the Upper Right port that is Facing Towards the Pi.</li>
 <li>The FPGAs that are flashed with the TX are connected to the Raspberry Pis configured for TX in the same manner as the previous step.</li>
 <li>Make sure that the RX and TX FPGAs are EXACTLY aligned.</li>
 </ol>
-
-<ol> Deployment
+ 
+<ol> <h2> Deployment </h2>
 <li>After all the setup steps are completed, we may see the fruition of our hard work</li>
 <li>Plug in the Raspberry Pi configured for TX to a power source (RECOMMENDED: Use portable power sources)</li>
 <li>Wait until you see the LED pattern change on both FPGAs change.</li>
