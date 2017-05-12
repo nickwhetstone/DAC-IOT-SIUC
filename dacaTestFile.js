@@ -22,6 +22,8 @@ process.argv.forEach(function (val, index, array) {
   {
 		TX_SERVER = true;
 		console.log("TX MODE");
+  } else {
+	  console.log("RX MODE");
   }
 });
 
@@ -46,12 +48,20 @@ app.listen(80, '0.0.0.0', function () {
 ***************************************************/
 
 app.post('/update-people-chart',function(req, res){
-	var currentDate = new Date();
 	res.setHeader('Content-Type', 'application/json');
 	res.send(JSON.stringify({
-		x: currentDate,
-		y: PEOPLE_COUNT
+		x: eventNumber,
+		y: peopleCount
 	}));
+});
+app.post('/clear-triggers',function(req, res){
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify({
+		x: eventNumber,
+		y: peopleCount
+	}));
+	
+	clearTriggers();
 });
 
 // TODO - ADD A RESET BUTTON
@@ -73,91 +83,100 @@ var STICK_1_MSG = '¬'; // INSIDE -- Upper Right Facing Towards Pi
 var STICK_2_MSG = '~'; // OUTSIDE -- Bottom Right Facing Towards Pi
 var TX_1_RECEIVED = true;
 var TX_2_RECEIVED = true;
-var RX_1_TIME_SINCE_TRIGGER = 0;
-var RX_2_TIME_SINCE_TRIGGER = 0;
 var RX_WAIT_INTERVAL = 100;
 var EVENT_WAIT_INTERVAL = 100;
-var TRIGGERED_FIRST = ''; // inside or outside
-var EVENT_VAL = ''; // entrance or exit
-var PEOPLE_COUNT = 0;
-var WAIT = false;
-/************** Event Handlers ***********************/
 
-setInterval(function() {
-	// console.log(PEOPLE_COUNT);
-	//console.log('TRIGGERED_FIRST: ' + TRIGGERED_FIRST);
-	// is there an event on one side
-	if( TRIGGERED_FIRST == '' && RX_1_TIME_SINCE_TRIGGER > 0) {
-		// inside triggered
-		TRIGGERED_FIRST = 'inside';
-		
-	} else if( TRIGGERED_FIRST == '' && RX_2_TIME_SINCE_TRIGGER > 0 ) {
-		// outside triggered
-		TRIGGERED_FIRST = 'outside';
-		
-	} else if(TRIGGERED_FIRST == 'outside' && RX_1_TIME_SINCE_TRIGGER > 0) {
-		// walked in
-		EVENT_VAL = 'entrance';
-	} else if(TRIGGERED_FIRST == 'inside' && RX_2_TIME_SINCE_TRIGGER > 0) {
-		// walked out
-		EVENT_VAL = 'exit';
-	}
-	
-	if( EVENT_VAL != '') {
-		// handle event
-		if(!WAIT) {
-			if( EVENT_VAL == 'exit' ) {
-				updatePeopleCount('decrease');
-			} else if ( EVENT_VAL == 'entrance' ) {
-				updatePeopleCount('increase');
-			}
-			console.log('TRIGGERED_FIRST: ' + TRIGGERED_FIRST);
-			console.log('EVENT_VAL: ' + EVENT_VAL);
-			console.log('PEOPLE_COUNT: ' + PEOPLE_COUNT);
-			console.log('RX_1_TIME_SINCE_TRIGGER: ' + RX_1_TIME_SINCE_TRIGGER);
-			console.log('RX_2_TIME_SINCE_TRIGGER: ' + RX_2_TIME_SINCE_TRIGGER);
-									EVENT_VAL = '';
+/************* New Code ********************/
+/* this state machine currently has 4 states.
 
-			WAIT = true;
-			console.log('start wait');
+    A: Both nodes untriggered.
+    B: Outside node triggered, other node untriggered.
+    C: Inside node triggered, other node untriggered.
+    D: Both nodes triggered
+*/
+var currentState = "A";
+var peopleCount = 0;
+var insideVal = "untriggered";
+var outsideVal = "untriggered";
+var eventNumber = 0; // TODO: Change to time if there's time (pun)
+var waiting = false;
 
-			setTimeout(function() {
-					WAIT = false;
-					console.log('done waiting');
-						EVENT_VAL = '';
-			TRIGGERED_FIRST = '';
-			RX_1_TIME_SINCE_TRIGGER = 0;
-			RX_2_TIME_SINCE_TRIGGER = 0;
-			}, 500);
-			
-		} else {
-		
+function updateState() {
+	if( !waiting ) {
+		var nextState = "";
+
+		switch(insideVal + "|" + outsideVal) {
+			case "untriggered|untriggered": nextState = "A"; 
+				break;
+			case "untriggered|triggered": nextState = "B";
+				break;
+			case "triggered|untriggered": nextState = "C";
+				break;
+			case "triggered|triggered": nextState = "D";
+				break;  
+				// TODO : Add a default  
 		}
-	}
-}, EVENT_WAIT_INTERVAL);
-
-
-function updatePeopleCount(commandType) {
-	// adjust people count
-	if( commandType == "increase" ) {
-		PEOPLE_COUNT++;
-	} else if( commandType == "decrease" ) {
-		PEOPLE_COUNT--;
-	}
-	
-	// error checking
-	if(PEOPLE_COUNT < 0) {
-		PEOPLE_COUNT = 0;
+		if ( nextState == "D" ) { // event triggered
+			if ( currentState == "C" ) {
+				// inside was triggered first
+				peopleCount = (--peopleCount < 0 ? 0 : peopleCount );
+				++eventNumber;
+				
+				// wait for them to stop blocking inside node
+				// how to wait, well you wait until you get
+			} else if ( currentState == "B" ) {
+				// outside was triggered first
+				++peopleCount;
+				++eventNumber;
+			} else {
+				// error?
+			}
+			clearTriggers();
+			// after a successful detection, wait for a given period
+			waitAfterEvent();
+		} else {
+			currentState = nextState;  
+			console.log("State: " + currentState);
+			console.log("People: " + peopleCount);
+			console.log("Event #: " + eventNumber);
+		}	
 	}
 }
+function waitAfterEvent() {
+	waiting = true;
+	console.log("waiting");
+	setTimeout(function() {
+			waiting = false;
+			console.log("done waiting");
+	}, 500);
+}
+function clearTriggers() {
 
-/************** End Event Handlers  ***********************/
+    insideVal = "untriggered";
+    outsideVal = "untriggered";
+    currentState = "A";
+    
+	console.log("Triggers cleared");
+    console.log("State: " + currentState);
+	console.log("People: " + peopleCount);
+	console.log("Event #: " + eventNumber);
+}
+function setTrigger(whichNode, triggerType) {	// inside or outside , triggered or untriggered
+	if( whichNode == "inside" ) {
+		insideVal = triggerType;
+	} else if( whichNode == "outside" ) {
+		outsideVal = triggerType;
+	}
+	updateState();
+}
+
+/************* End New Code ****************/
 
 
 /************** Stick 1 ***********************/
 
 // assign the port that we are connecting to the icestick with
-var serialPort_1 = new SerialPort("/dev/ttyUSB1", {
+var serialPort_1 = new SerialPort("/dev/ttyUSB1", {///// inside node
   baudrate: 115200,
 });
 
@@ -179,14 +198,9 @@ serialPort_1.on('data', function(data) {
 	var tx_rcv = data.toString('ascii');	
 	if( !TX_SERVER ) {
 		var rcvData = data.toString('ascii');
-		//console.log(rcvData);
 		if( rcvData ) {
-			//console.log('rcvd');
 			TX_1_RECEIVED = true
-		} else {
-			//console.log('NOT rcvd');
 		}
-		//console.log(RX_1_TIME_SINCE_TRIGGER);
 	}
 })
 
@@ -195,11 +209,9 @@ setInterval(function() {
 	if(!TX_SERVER) {
 		if(TX_1_RECEIVED) {
 			TX_1_RECEIVED = false;
-			RX_1_TIME_SINCE_TRIGGER = 0;
-		} else {
-			// whoa, no TX received!
-			// event occurred
-			RX_1_TIME_SINCE_TRIGGER++;
+		} else {			
+			// new code
+			setTrigger("inside", "triggered");
 		}
 	}
 }, RX_WAIT_INTERVAL);
@@ -229,14 +241,9 @@ serialPort_2.on('data', function(data) {
 	var tx_rcv = data.toString('ascii');	
 	if( !TX_SERVER ) {
 		var rcvData = data.toString('ascii');
-		//console.log(rcvData);
 		if( rcvData ) {
-			// console.log('rcvd2');
 			TX_2_RECEIVED = true
-		} else {
-			// console.log('NOT rcvd2');
 		}
-		//console.log(RX_2_TIME_SINCE_TRIGGER);
 	}
 })
 
@@ -245,11 +252,10 @@ setInterval(function() {
 	if(!TX_SERVER) {
 		if(TX_2_RECEIVED) {
 			TX_2_RECEIVED = false;
-			RX_2_TIME_SINCE_TRIGGER = 0;
 		} else {
 			// whoa, no TX received!
 			// event occurred
-			RX_2_TIME_SINCE_TRIGGER++;
+			setTrigger("outside", "triggered");
 		}
 	}
 }, RX_WAIT_INTERVAL);
