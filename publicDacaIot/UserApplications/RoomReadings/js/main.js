@@ -116,8 +116,8 @@ setInterval(function() {
 		url: '/update-meter-charts',
 		type: 'POST',
 		success: function(data) {
-				console.log("rcving rcvd data:" + data.data);
-debugData = data;
+			console.log(data.data["C02 (PPM)"]);
+			debugData = data;
 			updateSimpleHighCharts(data.data);
 		},
 	});

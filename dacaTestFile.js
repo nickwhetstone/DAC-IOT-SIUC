@@ -98,7 +98,7 @@ var TX_1_RECEIVED = true;
 var TX_2_RECEIVED = true;
 var RX_WAIT_INTERVAL = 100;
 var EVENT_WAIT_INTERVAL = 100;
-var debuggingStateMachine = true;
+var debuggingStateMachine = false;
 var turnOffWSN = false;
 
 /************* New Code ********************/
@@ -115,6 +115,7 @@ var insideVal = "untriggered";
 var outsideVal = "untriggered";
 var eventNumber = 0; // TODO: Change to time if there's time (pun)
 var waiting = false;
+var WAIT_TIME_AFTER_EVENT = 750;
 
 function updateState() {
 	if( !waiting ) {
@@ -161,11 +162,11 @@ function updateState() {
 }
 function waitAfterEvent() {
 	waiting = true;
-	console.log("waiting");
+	//console.log("waiting");
 	setTimeout(function() {
 			waiting = false;
-			console.log("done waiting");
-	}, 500);
+			//console.log("done waiting");
+	}, WAIT_TIME_AFTER_EVENT);
 }
 function clearTriggers() {
 
@@ -173,7 +174,7 @@ function clearTriggers() {
     outsideVal = "untriggered";
     currentState = "A";
     
-	console.log("Triggers cleared");
+	//console.log("Triggers cleared");
 	if( debuggingStateMachine ) {
 		console.log("State: " + currentState);
 		console.log("People: " + peopleCount);
@@ -201,11 +202,11 @@ var serialPort_1 = new SerialPort("/dev/ttyUSB1", {///// inside node
 
 // open the port
 serialPort_1.on("open", function () {
-  console.log('port 1 opened');
+  //console.log('port 1 opened');
   if( TX_SERVER ) {
 		setInterval(function() {
 			// send data to icestick
-					console.log("TX Writing: " + STICK_1_MSG);
+			//console.log("TX Writing: " + STICK_1_MSG);
 
 			serialPort_1.write(STICK_1_MSG);
 		}, 10); // 10 milliseconds for now
@@ -246,7 +247,7 @@ var serialPort_2 = new SerialPort("/dev/ttyUSB3", {
 
 // open the port
 serialPort_2.on("open", function () {
-  console.log('port 2 opened');
+  //console.log('port 2 opened');
   if( TX_SERVER ) {
 		setInterval(function() {
 			// send data to icestick
@@ -308,7 +309,7 @@ var serialPort_WSN = new SerialPort("/dev/ttyACM0", {
 
 // open the port
 serialPort_WSN.on("open", function () {
-  console.log('wsn port opened');
+  //console.log('wsn port opened');
 });
 
 var receivedSerialWSN = '';
@@ -328,12 +329,14 @@ serialPort_WSN.on('data', function(data) {
 
 	} else if( beginPos > -1 && endPos > -1 ) {
 		var rcvd = receivedSerialWSN.slice(beginPos,endPos + 1);
-
+		console.log("rcvd:"  + rcvd);
 		// handle the rcvd here
 		var timeStamp = new Date().getTime();
 
 		if( isJson(rcvd) ) {
 			rcvd = JSON.parse(rcvd);
+			console.log("rcvd parsed:"  + rcvd);
+
 			if( rcvd.deviceName != "AP" ) { // cheating for now
 				// add timeStamp
 				rcvd.timeStamp = timeStamp;
