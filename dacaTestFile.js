@@ -98,7 +98,9 @@ var TX_1_RECEIVED = true;
 var TX_2_RECEIVED = true;
 var RX_WAIT_INTERVAL = 100;
 var EVENT_WAIT_INTERVAL = 100;
-var debuggingStateMachine = false;
+var debuggingStateMachine = true;
+var turnOffWSN = false;
+
 /************* New Code ********************/
 /* this state machine currently has 4 states.
 
@@ -278,7 +280,7 @@ setInterval(function() {
 }, RX_WAIT_INTERVAL);
 
 /************** End Stick 2 ***********************/
-
+if( !turnOffWSN ) {
 /************** WSN AP ***********************/
 const deepClone = require('deep.clone');
 
@@ -332,20 +334,19 @@ serialPort_WSN.on('data', function(data) {
 
 		if( isJson(rcvd) ) {
 			rcvd = JSON.parse(rcvd);
-			
-			// add timeStamp
-			rcvd.timeStamp = timeStamp;
-			console.log("Before translations:" + rcvd);
+			if( rcvd.deviceName != "AP" ) { // cheating for now
+				// add timeStamp
+				rcvd.timeStamp = timeStamp;
+				console.log("Before translations:" + rcvd);
 
-			// modify this node into what the user wants
-				console.log("rcv: " + rcvd.deviceName);
-				console.log("settings[0].objectId: " + settings[0].id);
-				if(settings[0].id == rcvd.deviceName) {
-					settings[0].makeTranslations(rcvd); 
-				}
-		
-			console.log("Afer translations:" + rcvd);
-			lastReceivedData = deepClone(rcvd, { absolute: true });
+				// modify this node into what the user wants
+					if(settings[0].id == rcvd.deviceName) {
+						settings[0].makeTranslations(rcvd); 
+					}
+			
+				console.log("Afer translations:" + rcvd);
+				lastReceivedData = deepClone(rcvd, { absolute: true });
+			}
 		}
 		receivedSerialWSN = '';
 	}
@@ -530,3 +531,4 @@ function isJson(str) {
 /*****************************END OF UTILITY FUNCTIONS************************/
 
 /************** End WSN AP ***********************/
+}
