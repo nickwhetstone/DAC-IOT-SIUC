@@ -1,76 +1,12 @@
 		var ctx = document.getElementById("myChart").getContext("2d");
-		var scatterChart = new Chart(ctx, {
-			type: 'line',
-			data: {
-				datasets: [{
-					label: 'Number of people vs Time',
-					fill: true,
-					backgroundColor: 'rgba(255,0,0,.8)',
-					borderColor: 'rgba(0,0,0,1)',
-					data: [{
-						x: 0,
-						y: 0
-					}]
-				}]
-			},
-			options: {
-				tooltips: {
-					callbacks: {
-						label: function(tooltipItem, data) {
-								return 'Number of people: ' + tooltipItem.yLabel;
-						},
-						title: function(tooltipItem, data) {
-						   return 'Time: ' + tooltipItem[0].xLabel;
-						}
-					}
-				},
-				scales: {
-					xAxes: [{
-						type: 'linear',
-						position: 'bottom',
-						ticks: {
-							max: numTimes,
-							min: 0
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Time'
-						}
-					}],
-					yAxes: [{
-						ticks: {
-							min: 0
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Number of people'
-						}
-					}]
-				}
-			}
-		});
-		
-		var numTimes = 200;
-		var dataSet = scatterChart.data.datasets[0];
-		var textArea = document.getElementById('values');
-		
-		document.getElementById("addData").addEventListener("submit", function(e) {
-			e.preventDefault();
-			appendData(document.getElementById('time').value, document.getElementById('people').value);
-		});
-		
+        var scatterChart = createScatterChart(ctx); 
+		var dataSet = scatterChart.data.datasets[0];		
+
+
 		function appendData(datax,datay) { // time, people
 				scatterChart.data.datasets[0].data.push({x:datax,y:datay});
 				scatterChart.update();
-				updateTextArea();
 		}
-		function updateTextArea() {
-			textArea.innerHTML = "";
-			for(var i=0; i < dataSet.data.length; i++ ) {
-				textArea.innerHTML += dataSet.data[i].x + "," + dataSet.data[i].y + "\n";
-			}
-		}
-		var startTime = new Date();
 		
 		setInterval(function() {
 			//make the AJAX call
@@ -78,37 +14,18 @@
 					url: '/update-people-chart',
 					type: 'POST',
 					success: function(data) {
-					  updateNumbers(data);
+                        updateNumbers(data);
 					},
 				});
 		}, 2000);
-		var light = document.getElementById("light");
-
-
-		function switchLight(color) {
-			if (!color.length) {
-				$("#light").toggleClass("led-red led-green");
-			}
-			else {
-				light.classList.remove(color == "green" ? "led-red" : "led-green");
-				light.classList.add("led-" + color);
-			}
-		}
+        
 		var lastData = {};
-		var counter = 0;
 		function updateNumbers(data) {
-			var endTime = new Date();
-			var hours = (endTime - startTime)/3600000;
-			var streamBroken = data.streamBroken;
-			
-			console.log('x' + data.x);
-			console.log('y' + data.y);
-			
 			// is this data new?
 			var isNewData = ( lastData == data ? false : true );
 			
 			if (isNewData) {
-				appendData(++counter, data.y);
+				appendData(data.x, data.y);
 			}
 		}
 
@@ -143,7 +60,10 @@ $("#toggle-inside-trigger").on("click", function() {
     }
         updateState();
 });
-
+$("#clear-triggers").on("click", function() {
+    // make ajax request when ported to server
+    clearTriggers();
+});
 
 
 /* this state machine currently has 4 states.
@@ -154,14 +74,17 @@ $("#toggle-inside-trigger").on("click", function() {
     D: Both nodes triggered
 */
 
+// NOTE: void the following code out of as much client code as possible, it will be ported to the server
+var serverStatus = {};
 var currentState = "A";
 var peopleCount = 0;
-
+var insideVal = "untriggered";
+var outsideVal = "untriggered";
+var eventNumber = 0;
 function updateState() {
-    var insideVal = insideStatusDOM.text();
-    var outsideVal = outsideStatusDOM.text();
+    integrateWithCLIENTDEBUG(); // delete on server
     var nextState = "";
-    
+
     switch(insideVal + "|" + outsideVal) {
         case "untriggered|untriggered": nextState = "A"; 
             break;
@@ -175,10 +98,12 @@ function updateState() {
     if ( nextState == "D" ) { // event triggered
         if ( currentState == "C" ) {
             // inside was triggered first
-            updateNumbers({x:0,y:--peopleCount});
+            peopleCount = (--peopleCount < 0 ? 0 : peopleCount );
+            ++eventNumber;
         } else if ( currentState == "B" ) {
             // outside was triggered first
-            updateNumbers({x:0,y:++peopleCount});
+            ++peopleCount;
+            ++eventNumber;
         } else {
             // error?
         }
@@ -186,9 +111,75 @@ function updateState() {
         clearTriggers();
     }
     currentState = nextState;
-    stateStatus.text(currentState); // debug
+    
+    stateStatus.text(currentState); // debug // delete on server
+    updateNumbers({x:eventNumber,y:peopleCount}); // debug // delete on server
 }
 function clearTriggers() {
-    outsideStatusDOM.text("untriggered");
-    insideStatusDOM.text("untriggered");
+    insideVal = "untriggered";
+    outsidesideVal = "untriggered";
+    currentState = "A";
+    stateStatus.text(currentState); // debug // delete on server
+
+    outsideStatusDOM.text("untriggered"); // delete on server
+    insideStatusDOM.text("untriggered"); // delete on server
 }
+
+function integrateWithCLIENTDEBUG() { // delte on server
+    insideVal = insideStatusDOM.text();
+    outsideVal = outsideStatusDOM.text();
+}
+
+// **************** chart setup code ******************
+
+function createScatterChart(context) {
+        return new Chart(context, {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: 'Number of people vs Time',
+					fill: true,
+					backgroundColor: 'rgba(255,0,0,.8)',
+					borderColor: 'rgba(0,0,0,1)',
+					data: [{
+						x: 0,
+						y: 0
+					}]
+				}]
+			},
+			options: {
+				tooltips: {
+					callbacks: {
+						label: function(tooltipItem, data) {
+								return 'Number of people: ' + tooltipItem.yLabel;
+						},
+						title: function(tooltipItem, data) {
+						   return 'Time: ' + tooltipItem[0].xLabel;
+						}
+					}
+				},
+				scales: {
+					xAxes: [{
+						type: 'linear',
+						position: 'bottom',
+						ticks: {
+							min: 0
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Time'
+						}
+					}],
+					yAxes: [{
+						ticks: {
+							min: 0
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Number of people'
+						}
+					}]
+				}
+			}
+		});
+    }

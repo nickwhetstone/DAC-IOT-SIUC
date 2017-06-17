@@ -10,24 +10,14 @@
 <body>
 	<canvas id="myChart" style="height: 300; width: 70%;"></canvas>
 
-	<p>Add data points manually below.</p>
-	<form id="addData">
-		<div class="form_group"><label for="time">Time: </label><input type="text" name="time" id="time"></div>
-		<div class="form_group"><label for="people">Number of people: </label><input type="text" name="people" id="people"></div>
-		<div class="form_group"><input type="submit" value="Add"></div>
-	</form>
-
-	<button id="toggle-outside-trigger">Outside</button>
-	<button id="toggle-inside-trigger">Inside</button>
-
 	<section>
+		<button id="toggle-outside-trigger">Outside</button>
+		<button id="toggle-inside-trigger">Inside</button>
+		<button id="clear-triggers">Clear Triggers</button>
 		<section id="outside-status">Untriggered</section>
 		<section id="inside-status">Untriggered</section>
 		<section id="state-status"></section>
 	</section>
-
-
-	<label for="values">Data: </label><textarea id="values"></textarea>
 
 	<script src="./js/main.js" type="text/javascript"></script>
 </body>
